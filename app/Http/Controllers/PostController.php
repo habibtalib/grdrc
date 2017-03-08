@@ -31,7 +31,7 @@ class PostController extends Controller
 
         //dd(request()->all());
         //dd(request(['title','body']));
-        
+
         /*
         $post = new Post;
         $post->title = request('title');
@@ -44,6 +44,11 @@ class PostController extends Controller
             'body' => request('body')
         ]);
         */
+
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
 
         Post::create(request(['title','body']));
 
