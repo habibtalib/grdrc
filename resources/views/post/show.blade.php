@@ -6,4 +6,18 @@
 
         {{$post->body}}
     </div>
+
+    <div class="comment">
+        <ul class="list-group">
+            @foreach ($post->comments as $comment )
+                <li class="list-group-item">
+                    <strong>
+                         {{ $comment->crated_at->diffForHuman() }} :
+                    </strong>
+                    {{ $comment->body }}
+                </li>
+            @endforeach
+        </ul>
+
+    </div>
 @endsection
