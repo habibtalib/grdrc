@@ -4,6 +4,13 @@
     <div class="col-sm-8 blog-main">
         <h1>{{$post->title}}</h1>
 
+        @if (count($post->tag))
+            <ul>
+                @foreach ($post->tag as $tag)
+                    <li><a href="/post/tag/{{$tag->name}}"> {{$tag->name}}</a></li>
+                @endforeach
+        @endif
+
         {{$post->body}}
 
         <div class="comment">

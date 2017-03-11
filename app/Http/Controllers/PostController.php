@@ -16,12 +16,14 @@ class PostController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(Posts $posts) {
+    public function index(\App\Tag $tag = null) {
+
+        //return $tag->post;
 
         //return session('message');
-        //$posts = Post::latest()->filter(request(['month', 'year']))->get();
+        $posts = Post::latest()->filter(request(['month', 'year']))->get();
         //$posts = (new \App\Repositories\Posts)->all();
-        $posts = $posts->all();
+        //$posts = $posts->all();
         return view('post.index', compact('posts'));
 
     }
