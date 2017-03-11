@@ -21,9 +21,9 @@ Route::get('/', function () {
 
 //Route::get('/home', 'HomeController@index');
 
-App::bind('App\Billing\Stripe' , function () {
+/*App::bind('App\Billing\Stripe' , function () {
     return new App\Billing\Stripe(config('services.stripe.secret'));
-});
+});*/
 
 /*App::singleton('App\Billing\Stripe' , function () {
     return new App\Billing\Stripe(config('services.stripe.secret'));
@@ -34,8 +34,8 @@ App::bind('App\Billing\Stripe' , function () {
 
 //$stripe = App::make('App\Billing\Stripe');
 
-$stripe = resolve('App\Billing\Stripe');
-
+//$stripe = resolve('App\Billing\Stripe');
+//dd( resolve('App\Billing\Stripe'));
 
 Route::get('/', 'PostController@index')->name('home');
 
