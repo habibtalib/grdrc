@@ -18,6 +18,10 @@ class RegistrationController extends Controller
 
         $request->persist();
 
+        //session('message', 'here is default message');
+
+        session()->flash('message', 'Thank You');
+
         //return redirect('/');
         return redirect()->home();
     }

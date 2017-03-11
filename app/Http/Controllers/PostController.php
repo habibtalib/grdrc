@@ -18,6 +18,7 @@ class PostController extends Controller
 
     public function index(Posts $posts) {
 
+        //return session('message');
         //$posts = Post::latest()->filter(request(['month', 'year']))->get();
         //$posts = (new \App\Repositories\Posts)->all();
         $posts = $posts->all();
@@ -66,6 +67,8 @@ class PostController extends Controller
         //Post::create(request(['title','body', 'user_id']));
 
         auth()->user()->publish(new Post(request(['title', 'body'])));
+
+        session()->flash('message', 'Your post now has been published');
 
         return redirect('/');
 
