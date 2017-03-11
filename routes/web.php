@@ -21,6 +21,22 @@ Route::get('/', function () {
 
 //Route::get('/home', 'HomeController@index');
 
+App::bind('App\Billing\Stripe' , function () {
+    return new App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+/*App::singleton('App\Billing\Stripe' , function () {
+    return new App\Billing\Stripe(config('services.stripe.secret'));
+});*/
+
+//App::instance('App\Billing\Stripe' , $stripe);
+
+
+//$stripe = App::make('App\Billing\Stripe');
+
+$stripe = resolve('App\Billing\Stripe');
+
+
 Route::get('/', 'PostController@index')->name('home');
 
 Route::get('/post/create', 'PostController@create');
