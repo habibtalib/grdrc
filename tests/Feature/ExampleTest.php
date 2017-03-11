@@ -20,4 +20,10 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testBasicSeeTest()
+    {
+        $this->get('/')->assertSee('The Bootstrap Blog');
+    }
+
 }
