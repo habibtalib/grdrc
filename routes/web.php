@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 /*App::bind('App\Billing\Stripe' , function () {
     return new App\Billing\Stripe(config('services.stripe.secret'));

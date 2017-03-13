@@ -21,8 +21,9 @@ class Post extends Model
 
             'post_id' => $this->id
         ]); */
+        $user_id = auth()->id();
 
-        $this->comments()->create(compact('body'));
+        $this->comments()->create(compact('body','user_id'));
 
     }
 

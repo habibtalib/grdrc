@@ -3,7 +3,9 @@
 @section('content')
     <div class="col-sm-8 blog-main">
         <h1>{{$post->title}}</h1>
+        <p class="blog-post-meta">
 
+            {{$post->created_at->toFormattedDateString()}} by <a href="#">{{ $post->user->name }}</a></p>
         @if (count($post->tag))
             <ul>
                 @foreach ($post->tag as $tag)
@@ -17,16 +19,19 @@
             <ul class="list-group">
                 @foreach ($post->comments as $comment )
                     <li class="list-group-item">
+                        <p>
                         <strong>
-                            {{ $comment->created_at->diffForHumans() }} :
+                            {{$comment->user->name  }}   :
                         </strong>
                         {{ $comment->body }}
+                        [{{ $comment->created_at->diffForHumans() }}]
+                        </p>
                     </li>
                 @endforeach
             </ul>
 
         </div>
-
+        @if (Auth::check())
         <hr>
 
         <div class="card">
@@ -48,6 +53,7 @@
                 @include('layouts.errors')
             </div>
         </div>
+        @endif
     </div>
 
 
