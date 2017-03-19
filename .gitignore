@@ -1,5 +1,15 @@
 /node_modules
-/public/assets
+/public/assets/external
+/public/assets/external_mysql
+/public/assets/bootstrap
+/public/assets/css
+/public/assets/fonts
+/public/assets/icons
+/public/assets/img
+/public/assets/misc
+/public/assets/js/*js
+!/public/assets/js/maps.js
+/public/assets/scss
 /public/storage
 /public/hot
 /storage/*.key
@@ -8,4 +18,4 @@
 Homestead.json
 Homestead.yaml
 .env
-!/public/assets/js/maps.js
+

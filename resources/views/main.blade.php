@@ -5,6 +5,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="ThemeStarz">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 
     <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="assets/fonts/elegant-fonts.css" rel="stylesheet" type="text/css">
@@ -1418,7 +1420,8 @@
 <script type="text/javascript" src="assets/js/maps.js"></script>
 
 <script>
-    var optimizedDatabaseLoading = 0;
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var optimizedDatabaseLoading = 1;
     var _latitude = 3.191172;
     var _longitude = 101.693352;
     var element = "map-homepage";

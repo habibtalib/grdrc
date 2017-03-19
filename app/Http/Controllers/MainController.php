@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Items;
+use App\Gallery;
+use App\Reviews;
 
 class MainController extends Controller
 {
@@ -27,9 +29,17 @@ class MainController extends Controller
         return view('main');
     }
 
-    public function data()
+    public function data(Request $request)
     {
-        return Items::all();
+
+        if (isset($request['optimized_loading'])) {
+            return Items::where('latitude', '<=', $request['north_east_lat'])
+                ->where('latitude', '=>', $request['south_west_lat'])
+                ->where('longitude', '<=', $request['north_east_lng'])
+                ->where('longitude', '=>', $request['south_west_lng'])->get();
+        } else {
+            return Items::all();
+        }
     }
 
     public function customizer()
@@ -61,8 +71,34 @@ class MainController extends Controller
         return -1;
     }
 
-    public function sidebar_result(){
-        $data = $this->data();
+    public function sidebar_result(Request $request){
+        $data = [];
+        $gallery = [];
+        $reviewsNumber = [];
+
+        if( !empty( $request['markers'] ) ){
+
+            for( $i=0; $i < count($request['markers']); $i++){
+                //$queryData = mysqli_query( $connection, "SELECT * FROM items WHERE id = " . $request['markers'][$i] );
+                //array_push( $data, mysqli_fetch_assoc( $queryData ) );
+                $data = Items::where('id', $request['markers'][$i])->get();
+
+                // gallery
+                //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $request['markers'][$i] );
+                //array_push( $gallery, mysqli_fetch_assoc( $queryGallery ) );
+                $gallery = Gallery::where('item_id' , $request['markers'][$i])->get();
+
+                // reviews
+                //$queryReviews = mysqli_query( $connection, "SELECT rating FROM reviews WHERE item_id = " . $request['markers'][$i] );
+                //$reviews = mysqli_fetch_all( $queryReviews, MYSQLI_ASSOC );
+                //array_push( $reviewsNumber, count($reviews ) );
+                $reviewsNumber = Reviews::where('item_id' , $request['markers'][$i])->get();
+            }
+
+        }
+
+// End of example ------------------------------------------------------------------------------------------------------
+
         if( !empty($_POST['markers']) ){
 
             for( $i=0; $i < count($data); $i++){
@@ -93,9 +129,9 @@ class MainController extends Controller
 
                         // Image thumbnail -------------------------------------------------------------------------
 
-                        if( !empty($data[$i]['gallery'][0]) ){
+                        if( !empty($gallery[$i]["image"]) ){
                             echo
-                                '<div class="image" style="background-image: url('. $data[$i]['gallery'][0] .')">';
+                                '<div class="image" style="background-image: url('. $gallery[$i]["image"] .')">';
                             if( !empty($data[$i]['additional_info']) ){
                                 echo
                                     '<figure>'. $data[$i]['additional_info'] .'</figure>';
@@ -141,7 +177,7 @@ class MainController extends Controller
                             echo
                                 '<div class="rating-passive"data-rating="'. $data[$i]['rating'] .'">
                                             <span class="stars"></span>
-                                            <span class="reviews">'. $data[$i]['reviews_number'] .'</span>
+                                            <span class="reviews">'. $reviewsNumber[$i] .'</span>
                                         </div>';
                         }
 
@@ -177,71 +213,85 @@ class MainController extends Controller
         }
     }
 
-    public function infoBox(){
-
+    public function infoBox(Request $request){
         $currentLocation = "";
+        $reviewsNumber = [];
 
-        // ---------------------------------------------------------------------------------------------------------------------
-        // Here comes your script for loading from the database.
-        // ---------------------------------------------------------------------------------------------------------------------
+        // Select all data from "items"
+        //$queryData = mysqli_query( $connection, "SELECT * FROM items WHERE id = " . $_POST['id'] );
+        //$data = mysqli_fetch_all( $queryData, MYSQLI_ASSOC );
+        $data = Items::where('id', $request['id'])->get();
 
-        // Remove this example in your live site and replace it with a connection to database //////////////////////////////////
+        // Select all data from "gallery"
+        //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $_POST['id'] );
+        //$gallery = mysqli_fetch_all( $queryGallery, MYSQLI_ASSOC );
+        $gallery = Gallery::where('item_id' , $request['id'])->get();
 
-        $data = $this->data();
+        // Select all data from "reviews"
+        //$queryReviews = mysqli_query( $connection, "SELECT * FROM reviews WHERE item_id = " . $_POST['id'] );
+        //$reviews = mysqli_fetch_all( $queryReviews, MYSQLI_ASSOC );
+        //array_push( $reviewsNumber, count($reviews ) );
+        $reviews = Reviews::where('item_id' , $request['id'])->get();
+        $reviewsNumber = Reviews::where('item_id' , $request['id'])->count();
 
-        for( $i=0; $i < count($data); $i++){
-            if( $data[$i]['id'] == $_GET['id'] ){
-                $currentLocation = $data[$i]; // Loaded data must be stored in the "$currentLocation" variable
-            }
-        }
+                $currentLocation = $data[0];
+
+                /*
+
+                for( $i=0; $i < count($data); $i++){
+                    if( $data[$i]['id'] == $_POST['id'] ){
+                        $currentLocation = $data[$i]; // Loaded data must be stored in the "$currentLocation" variable
+                    }
+                }
+                */
 
         // End of example //////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Infobox HTML code
 
-        echo
-            '<div class="item infobox" data-id="'. $currentLocation['id'] .'">
+                echo
+                    '<div class="item infobox" data-id="'. $currentLocation['id'] .'">
             <a href="'. $currentLocation['url'] .'">
                 <div class="description">';
 
-        // Category ------------------------------------------------------------------------------------------------
+                // Category ------------------------------------------------------------------------------------------------
 
-        if( !empty($currentLocation['category']) ){
-            echo
-                '<div class="label label-default">'. $currentLocation['category'] .'</div>';
-        }
+                if( !empty($currentLocation['category']) ){
+                    echo
+                        '<div class="label label-default">'. $currentLocation['category'] .'</div>';
+                }
 
-        // Title ---------------------------------------------------------------------------------------------------
+                // Title ---------------------------------------------------------------------------------------------------
 
-        if( !empty($currentLocation['title']) ){
-            echo
-                '<h3>'. $currentLocation['title'] .'</h3>';
-        }
+                if( !empty($currentLocation['title']) ){
+                    echo
+                        '<h3>'. $currentLocation['title'] .'</h3>';
+                }
 
-        // Location ------------------------------------------------------------------------------------------------
+                // Location ------------------------------------------------------------------------------------------------
 
-        if( !empty($currentLocation['location']) ){
-            echo
-                '<h4>'. $currentLocation['location'] .'</h4>';
-        }
-        echo
+                if( !empty($currentLocation['location']) ){
+                    echo
+                        '<h4>'. $currentLocation['location'] .'</h4>';
+                }
+                echo
 
-        '</div>
-        <!--end description-->';
+                '</div>
+                <!--end description-->';
 
-        // Image thumbnail -------------------------------------------------------------------------
+                // Image thumbnail -------------------------------------------------------------------------
 
-        if( !empty($currentLocation['gallery'][0]) ){
-            echo
-                '<div class="image" style="background-image: url('. $currentLocation['gallery'][0] .')"></div>';
-        }
-        else {
-            echo
-            '<div class="image" style="background-image: url(assets/img/items/default.png)"></div>';
-        }
+                if( !empty($gallery[0]["image"]) ){
+                    echo
+                        '<div class="image" style="background-image: url('. $gallery[0]["image"] .')"></div>';
+                }
+                else {
+                    echo
+                    '<div class="image" style="background-image: url(assets/img/items/default.png)"></div>';
+                }
 
-        echo
-            '<!--end image-->
+                echo
+                '<!--end image-->
             </a>';
                 if( !empty( $currentLocation['rating'] ) ){
                     echo
@@ -255,7 +305,7 @@ class MainController extends Controller
                         }
                     }
                     echo
-                        '<span class="reviews">'. $currentLocation['reviews_number'] .'</span>
+                        '<span class="reviews">'. count($reviews) .'</span>
             </div>';
                 }
                 echo
