@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
+
 /*App::bind('App\Billing\Stripe' , function () {
     return new App\Billing\Stripe(config('services.stripe.secret'));
 });*/
@@ -56,3 +57,10 @@ Route::get('/login', 'SessionController@create')->name('login');
 Route::post('/login', 'SessionController@store');
 
 Route::get('/logout', 'SessionController@destroy');
+
+
+Route::get('/main', 'MainController@index');
+Route::get('/customizer', 'MainController@customizer');
+Route::get('/data', 'MainController@data');
+Route::get('/sidebar_result', 'MainController@sidebar_result');
+Route::get('/infobox', 'MainController@infoBox');
