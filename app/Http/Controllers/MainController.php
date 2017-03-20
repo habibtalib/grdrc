@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Items;
 use App\Gallery;
 use App\Reviews;
+use Illuminate\Queue\RedisQueue;
 
 class MainController extends Controller
 {
@@ -321,6 +322,10 @@ class MainController extends Controller
         <!--end item-->';
 
 
+    }
+
+    public function search(Request $request) {
+        dd($request->all());
     }
 
 

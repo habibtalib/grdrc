@@ -1,23 +1,24 @@
 <section class="block background-is-dark">
     <div class="form search-form">
         <div class="container">
-            <form>
+            <form method="POST" action="/search">
+                {{csrf_field()}}
                 <div class="row">
                     <div class="col-md-3 col-sm-2">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword">
+                            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" required>
                         </div>
                         <!--end form-group-->
                     </div>
                     <!--end col-md-4-->
                     <div class="col-md-3 col-sm-4">
                         <div class="form-group">
-                            <select class="form-control selectpicker" name="city">
+                            <select class="form-control selectpicker" name="city" required>
                                 <option value="">Location</option>
-                                <option value="1">New York</option>
-                                <option value="2">Washington</option>
-                                <option value="3">London</option>
-                                <option value="4">Paris</option>
+                                <option value="1">Kuala Lumpur</option>
+                                <option value="2">Selangor</option>
+                                <option value="3">Melaka</option>
+                                <option value="4">Johor</option>
                             </select>
                         </div>
                         <!--end form-group-->
@@ -25,21 +26,11 @@
                     <!--end col-md-4-->
                     <div class="col-md-3 col-sm-4">
                         <div class="form-group">
-                            <select class="form-control selectpicker" name="category">
+                            <select class="form-control selectpicker" name="category" required>
                                 <option value="">Category</option>
-                                <option value="restaurant">Restaurant</option>
-                                <option value="car rental">Car Rental</option>
-                                <option value="relax">Relax</option>
-                                <option value="sport">Sport</option>
-                                <option value="wellness">Wellness</option>
+                                <option value="1">Billboard</option>
+                                <option value="2">Digital Billboard</option>
                             </select>
-                        </div>
-                        <!--end form-group-->
-                    </div>
-                    <!--end col-md-4-->
-                    <div class="col-md-2 col-sm-4">
-                        <div class="form-group">
-                            <input type="text" class="form-control date-picker" name="min-price" placeholder="Event Date">
                         </div>
                         <!--end form-group-->
                     </div>
@@ -54,54 +45,10 @@
                 </div>
                 <!--end row-->
                 <div class="row">
-                    <div class="col-md-9 col-sm-8">
-                        <ul class="checkboxes">
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="1">Hotel</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="2">Event</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="3">Restaurant</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="4">Trip</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="5">Concert</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="6">Adrenaline</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                            <li>
-                                <div class="form-group">
-                                    <label class="no-margin"><input type="checkbox" name="6">Wellness</label>
-                                </div>
-                                <!--end form-group-->
-                            </li>
-                        </ul>
+                    <div class="col-md-7 col-sm-8">
                     </div>
                     <div class="col-md-2">
-                        <div class="ui-slider" id="price-slider" data-value-min="10" data-value-max="400" data-value-type="price" data-currency="$" data-currency-placement="before">
+                        <div class="ui-slider" id="price-slider" data-value-min="10" data-value-max="4000" data-value-type="price" data-currency="RM" data-currency-placement="before">
                             <div class="values clearfix">
                                 <input class="value-min" name="value-min[]" readonly>
                                 <input class="value-max" name="value-max[]" readonly>
