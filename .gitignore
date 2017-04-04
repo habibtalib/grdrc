@@ -6,7 +6,7 @@
 /public/assets/fonts
 /public/assets/icons
 /public/assets/img
-/public/assets/misc
+/public/assets/misc/*js
 /public/assets/js/*js
 !/public/assets/js/maps.js
 !/public/assets/misc/customizer.js
