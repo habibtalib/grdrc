@@ -1,6 +1,6 @@
 function loadColor(action, newColor){
     $.ajax({
-        url: "assets/misc/customizer.php",
+        url: "customizer",
         method: "POST",
         cache: false,
         data: { action: action, new_color: newColor, default_color: defaultColor, _token: CSRF_TOKEN },

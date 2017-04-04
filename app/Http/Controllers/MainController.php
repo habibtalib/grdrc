@@ -46,11 +46,11 @@ class MainController extends Controller
     public function customizer()
     {
         $default_color = "";
-        $path_to_css_file = '../css/temporary-style.css';
+        $path_to_css_file = 'assets/css/style.css';
         $file_contents = file_get_contents($path_to_css_file);
 
         if( $_POST['action'] == "load_default_color" ){
-            getLineWithString($path_to_css_file, "default_color");
+            $this->getLineWithString($path_to_css_file, "default_color");
         }
 
         if( !empty( $_POST['action'] ) == "change_color" && !empty( $_POST['new_color'] ) && !empty( $_POST['default_color'] ) ){

@@ -60,7 +60,7 @@ Route::get('/logout', 'SessionController@destroy');
 
 
 Route::get('/main', 'MainController@index');
-Route::get('/customizer', 'MainController@customizer');
+Route::post('/customizer', 'MainController@customizer');
 Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');
 Route::post('/infobox', 'MainController@infoBox');
