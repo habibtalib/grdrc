@@ -20,9 +20,9 @@
 
     <div id="page-content">
 
-
-        @include('glayouts.searchbar')
         @include('glayouts.map')
+        @include('glayouts.searchbar')
+
 
 
 
@@ -39,7 +39,7 @@
 @include('glayouts.script')
 
 <script>
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var CSRF_TOKEN = "{{ csrf_token() }}";
     var optimizedDatabaseLoading = 1;
     var _latitude = 3.191172;
     var _longitude = 101.693352;

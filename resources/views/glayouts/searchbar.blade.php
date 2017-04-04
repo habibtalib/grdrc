@@ -6,15 +6,15 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-2">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" required>
+                            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword">
                         </div>
                         <!--end form-group-->
                     </div>
                     <!--end col-md-4-->
                     <div class="col-md-3 col-sm-4">
                         <div class="form-group">
-                            <select class="form-control selectpicker" name="city" required>
-                                <option value="">Location</option>
+                            <select class="form-control selectpicker" name="city">
+                                <option value="0">All Locations</option>
                                 <option value="1">Kuala Lumpur</option>
                                 <option value="2">Selangor</option>
                                 <option value="3">Melaka</option>
@@ -26,8 +26,8 @@
                     <!--end col-md-4-->
                     <div class="col-md-3 col-sm-4">
                         <div class="form-group">
-                            <select class="form-control selectpicker" name="category" required>
-                                <option value="">Category</option>
+                            <select class="form-control selectpicker" name="category">
+                                <option value="0">All Categories</option>
                                 <option value="1">Billboard</option>
                                 <option value="2">Digital Billboard</option>
                             </select>

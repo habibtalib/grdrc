@@ -9,6 +9,7 @@
 /public/assets/misc
 /public/assets/js/*js
 !/public/assets/js/maps.js
+!/public/assets/misc/customizer.js
 /public/assets/scss
 /public/storage
 /public/hot
