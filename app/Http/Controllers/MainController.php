@@ -178,7 +178,7 @@ class MainController extends Controller
                             echo
                                 '<div class="rating-passive"data-rating="'. $data[$i]['rating'] .'">
                                             <span class="stars"></span>
-                                            <span class="reviews">'. $reviewsNumber[$i] .'</span>
+                                            <span class="reviews"></span>
                                         </div>';
                         }
 
