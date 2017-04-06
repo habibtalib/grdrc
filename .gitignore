@@ -11,6 +11,7 @@
 /public/assets/misc/*css
 /public/assets/misc/*php
 !/public/assets/js/maps.js
+!/public/assets/js/custom.js
 !/public/assets/misc/customizer.js
 /public/assets/scss
 /public/storage

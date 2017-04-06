@@ -15,11 +15,11 @@
             </div>
             <!--end primary-nav-->
             <div class="secondary-nav">
-                <a href="#" data-modal-external-file="modal_sign_in.php" data-target="modal-sign-in">Sign In</a>
-                <a href="#" class="promoted" data-modal-external-file="modal_register.php" data-target="modal-register">Register</a>
+                <a href="#" data-modal-external-file="modal/sign-in" data-target="modal-sign-in">Sign In</a>
+                <a href="#" class="promoted" data-modal-external-file="modal/register" data-target="modal-register">Register</a>
             </div>
             <!--end secondary-nav-->
-            <a href="#" class="btn btn-primary btn-small btn-rounded icon shadow add-listing" data-modal-external-file="modal_submit.php" data-target="modal-submit"><i class="fa fa-plus"></i><span>Add listing</span></a>
+            <a href="#" class="btn btn-primary btn-small btn-rounded icon shadow add-listing" data-modal-external-file="modal/submit" data-target="modal-submit"><i class="fa fa-plus"></i><span>Add listing</span></a>
             <div class="nav-btn">
                 <i></i>
                 <i></i>
