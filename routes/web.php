@@ -38,7 +38,7 @@ Route::get('/home', 'HomeController@index');
 //$stripe = resolve('App\Billing\Stripe');
 //dd( resolve('App\Billing\Stripe'));
 
-Route::get('/', 'PostController@index')->name('home');
+//Route::get('/', 'PostController@index')->name('home');
 
 Route::get('/post/create', 'PostController@create');
 Route::get('/post/{post}', 'PostController@show');
@@ -59,7 +59,7 @@ Route::post('/login', 'SessionController@store');
 Route::get('/logout', 'SessionController@destroy');
 
 
-Route::get('/main', 'MainController@index');
+Route::get('/', 'MainController@index');
 Route::post('/customizer', 'MainController@customizer');
 Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');

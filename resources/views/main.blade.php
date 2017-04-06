@@ -22,6 +22,7 @@
 
         @include('glayouts.map')
         @include('glayouts.searchbar')
+        @include('glayouts.recent')
 
 
 
