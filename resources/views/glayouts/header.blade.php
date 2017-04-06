@@ -1,15 +1,15 @@
 <header id="page-header">
     <nav>
         <div class="left">
-            <a href="index.html" class="brand"><img src="assets/img/logo.png" alt=""></a>
+            <a href="/" class="brand"><img src="assets/img/logo.png" alt=""></a>
         </div>
         <!--end left-->
         <div class="right">
             <div class="primary-nav has-mega-menu">
                 <ul class="navigation">
                     <li class="{{ (Request::path() == '/') ? 'active': ''}}"><a href="/">Home</a></li>
-                    <li class="{{ (Request::path() == '/about-us') ? 'active': ''}}"><a href="about-us">About Us</a></li>
-                    <li class="{{ (Request::path() == '/contact-us') ? 'active': ''}}"> <a href="contact-us">Contact Us</a></li>
+                    <li class="{{ (Request::path() == 'about-us') ? 'active': ''}}"><a href="about-us">About Us</a></li>
+                    <li class="{{ (Request::path() == 'contact-us') ? 'active': ''}}"> <a href="contact-us">Contact Us</a></li>
                 </ul>
                 <!--end navigation-->
             </div>

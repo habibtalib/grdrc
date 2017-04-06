@@ -65,8 +65,12 @@ Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');
 Route::post('/infobox', 'MainController@infoBox');
 Route::post('/search', 'MainController@search');
+Route::get('/detail', 'MainController@detail');
 
 Route::post('/modal/sign-in', 'ModalController@signIn');
 Route::post('/modal/register', 'ModalController@register');
 Route::post('/modal/reset_password', 'ModalController@resetPassword');
 Route::post('/modal/submit', 'ModalController@submit');
+
+Route::get('/contact-us', 'MainController@contactUs');
+Route::get('/about-us', 'MainController@aboutUs');

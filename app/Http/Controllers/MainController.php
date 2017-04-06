@@ -325,7 +325,21 @@ class MainController extends Controller
     }
 
     public function search(Request $request) {
-        dd($request->all());
+        //dd($request->all());
+        return view('listing');
+    }
+
+    public function detail(Request $request) {
+        //dd($request->all());
+        return view('detail');
+    }
+
+    public function contactUs(){
+        return view('contact-us');
+    }
+
+    public function aboutUs(){
+        return view('about-us');
     }
 
 
