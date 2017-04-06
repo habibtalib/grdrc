@@ -1,7 +1,7 @@
 <section class="block background-is-dark">
     <div class="form search-form">
         <div class="container">
-            <form method="POST" action="/search">
+            <form method="POST" action="/listing">
                 {{csrf_field()}}
                 <div class="row">
                     <div class="col-md-3 col-sm-2">

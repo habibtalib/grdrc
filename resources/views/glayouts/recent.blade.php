@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-3">
                 <div class="item" data-id="1">
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <figure>Average Price: $8 - $30</figure>
                             <div class="label label-default">Restaurant</div>
@@ -47,7 +47,7 @@
             <!--<end col-md-3-->
             <div class="col-md-3 col-sm-3">
                 <div class="item" data-id="2">
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <div class="label label-default">Restaurant</div>
                             <h3>Ironapple</h3>
@@ -81,7 +81,7 @@
             <div class="col-md-6 col-sm-6">
                 <div class="item" data-id="15">
                     <figure class="ribbon">Top</figure>
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <figure>Happy hour: 18:00 - 19:00</figure>
                             <div class="label label-default">Bar & Grill</div>
@@ -117,7 +117,7 @@
             <div class="col-md-4 col-sm-4">
                 <div class="item" data-id="3">
                     <figure class="ribbon">Top</figure>
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <figure>Starts at: 19:00</figure>
                             <div class="label label-default">Event</div>
@@ -152,7 +152,7 @@
             <!--<end col-md-4-->
             <div class="col-md-3 col-sm-3">
                 <div class="item" data-id="4">
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <div class="label label-default">Lounge</div>
                             <h3>Cosmopolit</h3>
@@ -185,7 +185,7 @@
             <!--<end col-md-3-->
             <div class="col-md-5 col-sm-5">
                 <div class="item" data-id="6">
-                    <a href="detail.html">
+                    <a href="detail">
                         <div class="description">
                             <figure>Free entry</figure>
                             <div class="label label-default">Concert</div>
@@ -220,7 +220,7 @@
         </div>
         <!--end row-->
         <div class="center">
-            <a href="listing.html" class="btn btn-primary btn-light-frame btn-rounded btn-framed arrow">View all listings</a>
+            <a href="listing" class="btn btn-primary btn-light-frame btn-rounded btn-framed arrow">View all listings</a>
         </div>
         <!--end center-->
     </div>

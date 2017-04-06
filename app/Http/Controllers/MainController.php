@@ -252,7 +252,7 @@ class MainController extends Controller
 
                 echo
                     '<div class="item infobox" data-id="'. $currentLocation['id'] .'">
-            <a href="'. $currentLocation['url'] .'">
+            <a href="detail?'. $currentLocation['id'] .'">
                 <div class="description">';
 
                 // Category ------------------------------------------------------------------------------------------------
@@ -324,7 +324,7 @@ class MainController extends Controller
 
     }
 
-    public function search(Request $request) {
+    public function listing(Request $request) {
         //dd($request->all());
         return view('listing');
     }
