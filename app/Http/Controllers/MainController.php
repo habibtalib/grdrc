@@ -148,7 +148,12 @@ class MainController extends Controller
 
     public function listing(Request $request) {
         //dd($request->all());
-        return view('listing');
+        if(isset($request['_token'])) {
+            dd($request->all());
+        }
+        $data = Items::paginate(1);
+
+        return view('listing',compact('data'));
     }
 
     public function detail(Request $request) {
