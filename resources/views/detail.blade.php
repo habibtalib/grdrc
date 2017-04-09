@@ -5,7 +5,7 @@
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="#">Pages</a></li>
-            <li class="active">Contact</li>
+            <li class="active">Detail</li>
         </ol>
 
         <div class="row">
@@ -28,21 +28,11 @@
                         <section>
                             <div class="gallery detail">
                                 <div class="owl-carousel" data-owl-nav="0" data-owl-dots="1">
+                                    @foreach($item->gallery as $picture)
                                     <div class="image">
-                                        <div class="bg-transfer"><img src="{{url('/')}}/assets/img/items/1.jpg" alt=""></div>
+                                        <div class="bg-transfer"><img src="{{url('/').$picture->image}}" alt=""></div>
                                     </div>
-                                    <div class="image">
-                                        <div class="bg-transfer"><img src="{{url('/')}}/assets/img/items/30.jpg" alt=""></div>
-                                    </div>
-                                    <div class="image">
-                                        <div class="bg-transfer"><img src="{{url('/')}}/assets/img/items/31.jpg" alt=""></div>
-                                    </div>
-                                    <div class="image">
-                                        <div class="bg-transfer"><img src="{{url('/')}}/assets/img/items/21.jpg" alt=""></div>
-                                    </div>
-                                    <div class="image">
-                                        <div class="bg-transfer"><img src="{{url('/')}}/assets/img/items/23.jpg" alt=""></div>
-                                    </div>
+                                    @endforeach
                                 </div>
                                 <!--end owl-carousel-->
                             </div>

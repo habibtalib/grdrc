@@ -151,8 +151,12 @@ class MainController extends Controller
         //dd($request->all());
         if(isset($request['_token'])) {
             dd($request->all());
+            $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')->orWhere('category', 'like', '%'. $request['category'] . '%')->paginate(10);
+
+        } else {
+            $data = Items::paginate(10);
         }
-        $data = Items::paginate(1);
+
         $recent = Items::get();
 
         return view('listing',compact('data','recent'));
