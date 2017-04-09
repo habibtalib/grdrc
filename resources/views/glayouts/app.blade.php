@@ -37,6 +37,7 @@
 @include('glayouts.script')
 
 <script>
+    var root_url = '{{url('/')}}';
     var CSRF_TOKEN = "{{ csrf_token() }}";
     var optimizedDatabaseLoading = 1;
     var _latitude = 3.191172;

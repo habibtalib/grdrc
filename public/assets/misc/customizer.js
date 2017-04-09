@@ -1,12 +1,12 @@
 function loadColor(action, newColor){
     $.ajax({
-        url: "customizer",
+        url: root_url + "/customizer",
         method: "POST",
         cache: false,
         data: { action: action, new_color: newColor, default_color: defaultColor, _token: CSRF_TOKEN },
         success: function(results){
             if( action == "change_color" ){
-                $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', 'assets/css/temporary-style.css') );
+                $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', root_url + '/assets/css/temporary-style.css') );
                 $('link').each(function() {
                     if ($(this).attr("type").indexOf("css") > -1) {
                         $(this).attr("href", $(this).attr("href") + "?id=" + new Date().getMilliseconds());
@@ -47,7 +47,7 @@ function createCustomizer(defaultColor) {
        $(".customizer").toggleClass("show-it");
     });
 
-    $.getScript( "assets/js/icheck.min.js", function( data, textStatus, jqxhr ) {
+    $.getScript( root_url + "/assets/js/icheck.min.js", function( data, textStatus, jqxhr ) {
         if ($("input[type=checkbox]").length > 0) {
             $("input[type=checkbox]").iCheck();
 
@@ -69,7 +69,7 @@ function createCustomizer(defaultColor) {
             });
 
             $('.customizer #checkbox-rtl').on('ifChecked', function(event){
-                $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', 'assets/css/rtl.css') );
+                $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', root_url + '/assets/css/rtl.css') );
                 $("body").addClass("rtl");
                 $(".owl-carousel").trigger("destroy.owl.carousel");
                 initializeOwl();
@@ -92,8 +92,8 @@ function createCustomizer(defaultColor) {
     });
 
     $("body").append(customizerHtml);
-    $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', 'assets/misc/spectrum.css') );
-    $.getScript( "assets/misc/spectrum.js", function( data, textStatus, jqxhr ) {
+    $('head').append( $('<link rel="stylesheet" type="text/css">').attr('href', root_url + '/assets/misc/spectrum.css') );
+    $.getScript( root_url + "/assets/misc/spectrum.js", function( data, textStatus, jqxhr ) {
         $("#color-picker").spectrum({
             color: defaultColor,
             flat: true,

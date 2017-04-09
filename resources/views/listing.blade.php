@@ -5,20 +5,20 @@
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
             <li><a href="#">Pages</a></li>
-            <li class="active">Contact</li>
+            <li class="active">Listing</li>
         </ol>
         <div class="row">
             <div class="col-md-9 col-sm-9">
                 <section class="page-title">
-                    <h1>Grid Listing</h1>
+                    <h1>Listing</h1>
                 </section>
                 <!--end section-title-->
 
                 <section>
                     <div class="search-results-controls clearfix">
                         <div class="pull-left">
-                            <a href="listing-grid-right-sidebar.html" class="circle-icon active"><i class="fa fa-th"></i></a>
-                            <a href="listing-row-right-sidebar.html" class="circle-icon"><i class="fa fa-bars"></i></a>
+                            <a href="" class="circle-icon active"><i class="fa fa-th"></i></a>
+                            <a href="" class="circle-icon"><i class="fa fa-bars"></i></a>
                         </div>
                         <!--end left-->
                         <div class="pull-right">
@@ -43,7 +43,7 @@
                             <div class="item" data-id="1">
                                 <a href="detail">
                                     <div class="description">
-                                        <figure>Average Price: $8 - $30</figure>
+                                        <figure>{{$item['additional_info']}}</figure>
                                         <div class="label label-default">{{$item['category']}}</div>
                                         <h3>{{$item['title']}}</h3>
                                         <h4>{{$item['location']}}</h4>

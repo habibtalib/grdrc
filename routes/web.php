@@ -65,7 +65,7 @@ Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');
 Route::post('/infobox', 'MainController@infoBox');
 Route::post('/listing', 'MainController@listing');
-Route::get('/detail', 'MainController@detail');
+Route::get('/detail/{item}', 'MainController@detail');
 Route::get('/listing', 'MainController@listing');
 
 Route::post('/modal/sign-in', 'ModalController@signIn');

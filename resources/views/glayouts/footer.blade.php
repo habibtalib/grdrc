@@ -14,7 +14,7 @@
                 </div>
                 <div class="background-wrapper">
                     <div class="bg-transfer opacity-50">
-                        <img src="assets/img/footer-bg.png" alt="">
+                        <img src="{{url('/')}}/assets/img/footer-bg.png" alt="">
                     </div>
                 </div>
                 <!--end background-wrapper-->
@@ -23,12 +23,12 @@
         <div class="footer-navigation">
             <div class="container">
                 <div class="vertical-aligned-elements">
-                    <div class="element width-50">(C) 2016 Your Company, All right reserved</div>
+                    <div class="element width-50">(C) 2017 GetRiuh.com, All right reserved</div>
                     <div class="element width-50 text-align-right">
-                        <a href="index.html">Home</a>
-                        <a href="listing-grid-right-sidebar.html">Listings</a>
-                        <a href="submit.html">Submit Item</a>
-                        <a href="contact.html">Contact</a>
+                        <a href="/">Home</a>
+                        <a href="listing">Listings</a>
+                        <a href="submit-item">Submit Item</a>
+                        <a href="contact-us">Contact</a>
                     </div>
                 </div>
             </div>

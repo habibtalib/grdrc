@@ -27,7 +27,8 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('main');
+        $recent = Items::get();
+        return view('main',compact('recent'));
     }
 
     public function data(Request $request)
@@ -43,20 +44,20 @@ class MainController extends Controller
         }
     }
 
-    public function customizer()
+    public function customizer(Request $request)
     {
         $default_color = "";
         $path_to_css_file = 'assets/css/style.css';
         $file_contents = file_get_contents($path_to_css_file);
 
-        if( $_POST['action'] == "load_default_color" ){
+        if( $request['action'] == "load_default_color" ){
             $this->getLineWithString($path_to_css_file, "default_color");
         }
 
-        if( !empty( $_POST['action'] ) == "change_color" && !empty( $_POST['new_color'] ) && !empty( $_POST['default_color'] ) ){
-            $file_contents = str_replace( $_POST['default_color'], $_POST['new_color'] , $file_contents );
+        if( !empty( $request['action'] ) == "change_color" && !empty( $request['new_color'] ) && !empty( $request['default_color'] ) ){
+            $file_contents = str_replace( $request['default_color'], $request['new_color'] , $file_contents );
             file_put_contents( $path_to_css_file, $file_contents );
-            echo $_POST['new_color'];
+            echo $request['new_color'];
         }
     }
 
@@ -152,13 +153,15 @@ class MainController extends Controller
             dd($request->all());
         }
         $data = Items::paginate(1);
+        $recent = Items::get();
 
-        return view('listing',compact('data'));
+        return view('listing',compact('data','recent'));
     }
 
-    public function detail(Request $request) {
+    public function detail(Items $item) {
         //dd($request->all());
-        return view('detail');
+        $recent = Items::get();
+        return view('detail', compact('recent','item'));
     }
 
     public function contactUs(){
