@@ -41,7 +41,7 @@
                         @foreach( $data as $item)
                         <div class="col-md-4 col-sm-4">
                             <div class="item" data-id="1">
-                                <a href="detail">
+                                <a href="detail/{{$item['id']}}">
                                     <div class="description">
                                         <figure>{{$item['additional_info']}}</figure>
                                         <div class="label label-default">{{$item['category']}}</div>

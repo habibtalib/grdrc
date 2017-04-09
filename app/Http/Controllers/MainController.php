@@ -88,7 +88,7 @@ class MainController extends Controller
                 // gallery
                 //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $request['markers'][$i] );
                 //array_push( $gallery, mysqli_fetch_assoc( $queryGallery ) );
-                $gallery = Gallery::where('item_id' , $request['markers'][$i])->get();
+                $gallery = Gallery::where('items_id' , $request['markers'][$i])->get();
 
                 // reviews
                 //$queryReviews = mysqli_query( $connection, "SELECT rating FROM reviews WHERE item_id = " . $request['markers'][$i] );
@@ -118,7 +118,7 @@ class MainController extends Controller
         // Select all data from "gallery"
         //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $_POST['id'] );
         //$gallery = mysqli_fetch_all( $queryGallery, MYSQLI_ASSOC );
-        $gallery = Gallery::where('item_id' , $request['id'])->get();
+        $gallery = Gallery::where('items_id' , $request['id'])->get();
 
         // Select all data from "reviews"
         //$queryReviews = mysqli_query( $connection, "SELECT * FROM reviews WHERE item_id = " . $_POST['id'] );
@@ -150,7 +150,7 @@ class MainController extends Controller
     public function listing(Request $request) {
         //dd($request->all());
         if(isset($request['_token'])) {
-            dd($request->all());
+            //dd($request->all());
             $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')->orWhere('category', 'like', '%'. $request['category'] . '%')->paginate(10);
 
         } else {
@@ -165,7 +165,7 @@ class MainController extends Controller
     public function detail(Items $item) {
         //dd($request->all());
         $recent = Items::get();
-        return view('detail', compact('recent','item'));
+        return view('detail.show', compact('recent','item'));
     }
 
     public function contactUs(){
