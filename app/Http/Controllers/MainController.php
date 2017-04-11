@@ -151,7 +151,9 @@ class MainController extends Controller
         //dd($request->all());
         if(isset($request['_token'])) {
             //dd($request->all());
-            $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')->orWhere('category', 'like', '%'. $request['category'] . '%')->paginate(10);
+            $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')
+                ->where('category', 'like', '%'. $request['category'] . '%')
+                ->paginate(10);
 
         } else {
             $data = Items::paginate(10);
@@ -174,6 +176,20 @@ class MainController extends Controller
 
     public function aboutUs(){
         return view('about-us');
+    }
+
+    public function submitListing() {
+        dd(request()->all());
+        $this->validate(request(), [
+            'title' => 'required'
+        ]);
+
+        Items::create([
+            'title' => request('title'),
+        ]);
+
+        return redirect('/');
+
     }
 
 
