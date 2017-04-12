@@ -7,14 +7,15 @@
             </div>
         </div>
         <div class="modal-body">
-            <form class="form inputs-underline">
+            <form class="form inputs-underline" method="POST" action="\submit">
+                {{csrf_field()}}
                 <section>
                     <h3>About</h3>
                     <div class="row">
                         <div class="col-md-9 col-sm-9">
                             <div class="form-group">
-                                <label for="title">Listing Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                                <label for="title">Title</label>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
                             </div>
                             <!--end form-group-->
                         </div>
@@ -22,13 +23,9 @@
                         <div class="col-md-3 col-sm-3">
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select class="form-control selectpicker" name="category" id="category">
-                                    <option value="">Category</option>
-                                    <option value="1">Restaurant</option>
-                                    <option value="2">Event</option>
-                                    <option value="3">Adrenaline</option>
-                                    <option value="4">Sport</option>
-                                    <option value="5">Wellness</option>
+                                <select class="form-control selectpicker" name="category" id="category" required>
+                                    <option value="Billboard">Billboard</option>
+                                    <option value="Digital Billboard">Digital Billboard</option>
                                 </select>
                             </div>
                             <!--end form-group-->
@@ -41,10 +38,10 @@
                         <textarea class="form-control" id="description" rows="4" name="description" placeholder="Describe the listing"></textarea>
                     </div>
                     <!--end form-group-->
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label for="tags">Tags</label>
                         <input type="text" class="form-control" name="tags" id="tags" placeholder="+ Add tag">
-                    </div>
+                    </div>--}}
                     <!--end form-group-->
                 </section>
                 <section>
@@ -53,7 +50,7 @@
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
                                 <label for="address-autocomplete">Address</label>
-                                <input type="text" class="form-control" name="address" id="address-autocomplete" placeholder="Address">
+                                <input type="text" class="form-control" name="address" id="address-autocomplete" placeholder="Address" required>
                             </div>
                             <!--end form-group-->
                             <div class="map height-200px shadow" id="map-modal"></div>
@@ -67,30 +64,30 @@
                         <!--end col-md-6-->
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group">
-                                <label for="region">Listing Region</label>
-                                <select class="form-control selectpicker" name="region" id="region">
-                                    <option value="">Select Region</option>
-                                    <option value="1">New York</option>
-                                    <option value="2">Washington</option>
-                                    <option value="3">London</option>
-                                    <option value="4">Paris</option>
+                                <label for="location">Location</label>
+                                <select class="form-control selectpicker" name="location" id="location" required>
+                                    <option value="">All Locations</option>
+                                    <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                    <option value="Selangor">Selangor</option>
+                                    <option value="Melaka">Melaka</option>
+                                    <option value="Johor">Johor</option>
                                 </select>
                             </div>
                             <!--end form-group-->
                             <div class="form-group">
-                                <label for="phone">Listing Phone</label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone number">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone number" required>
                             </div>
                             <!--end form-group-->
                             <div class="form-group">
-                                <label for="email">Listing Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="hello@example.com">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="hello@example.com" required>
                             </div>
                             <!--end form-group-->
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 <label for="website">Listing Website</label>
                                 <input type="text" class="form-control" name="website" id="website" placeholder="http://">
-                            </div>
+                            </div>--}}
                             <!--end form-group-->
                         </div>
                         <!--end col-md-6-->
@@ -100,16 +97,16 @@
                     <h3>Gallery</h3>
                     <div class="file-upload-previews"></div>
                     <div class="file-upload">
-                        <input type="file" name="files[]" class="file-upload-input with-preview" multiple title="Click to add files" maxlength="10" accept="gif|jpg|png">
+                        <input type="file"  class="file-upload-input with-preview" multiple title="Click to add files" maxlength="10" accept="gif|jpg|png">
                         <span>Click or drag images here</span>
                     </div>
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label for="video">Video URL</label>
                         <input type="text" class="form-control" name="video" id="video" placeholder="http://">
-                    </div>
+                    </div>--}}
                     <!--end form-group-->
                 </section>
-                <section>
+                {{--<section>
                     <h3>Social</h3>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -508,7 +505,7 @@
                         <!--end panel-->
                     </div>
                     <!--end panel-group-->
-                </section>
+                </section>--}}
                 <hr>
                 <section class="center">
                     <div class="form-group">

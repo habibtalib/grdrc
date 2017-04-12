@@ -180,5 +180,10 @@ class MainController extends Controller
         return view('about-us');
     }
 
+    public function submit(){
+        Items::create(request()->all());
+        return redirect('/');
+    }
+
 
 }

@@ -52,19 +52,16 @@
                     <h3>Contact</h3>
 
                     @if( !empty($item['location']) )
-
                     <h5><i class="fa fa-map-marker"></i>{{$item['location']}}</h5>
                     @endif
 
 
                     @if( !empty($item['phone']) )
-
                     <h5><i class="fa fa-phone"></i>{{$item['phone']}}</h5>
                     @endif
 
 
                     @if( !empty($item['email']) )
-                    echo
                     <h5><i class="fa fa-envelope"></i>{{$item['email']}}</h5>
                     @endif
 
