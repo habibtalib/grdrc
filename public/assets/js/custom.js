@@ -22,7 +22,6 @@ $(document).ready(function($) {
     }
 
     if( customizerEnabled == 1 ){
-        console.log(root_url);
         $.getScript( root_url + "/assets/misc/customizer.js", function( data, textStatus, jqxhr ) {
             loadColor("load_default_color");
         });
@@ -112,7 +111,7 @@ $(document).ready(function($) {
         var modalTarget, modalFile;
         if( $(this).closest(".item").attr("data-id") ){
             modalTarget = $(this).closest(".item").attr("data-id");
-            modalFile = "modal_item.php";
+            modalFile = "modal/item/"+modalTarget;
         }
         else {
             modalTarget = $(this).attr("data-target");
@@ -356,7 +355,6 @@ function openModal(target, modalPath){
     $("#" + target + ".modal").on("show.bs.modal", function () {
         var _this = $(this);
         lastModal = _this;
-        console.log(modalPath)
 ;        $.ajax({
             url:  modalPath,
             method: "POST",
