@@ -50,4 +50,24 @@ class ModalController extends Controller
     {
         return view('modal.submit');
     }
+
+    public function item(Items $item)
+    {
+        $latitude = "";
+        $longitude = "";
+        $address = "";
+
+        if( !empty($item['latitude']) ){
+            $latitude = $item['latitude'];
+        }
+
+        if( !empty($item['longitude']) ){
+            $longitude = $item['longitude'];
+        }
+
+        if( !empty($item['address']) ){
+            $address = $item['address'];
+        }
+        return view('modal.item', compact('item','latitude','longitude','address'));
+    }
 }

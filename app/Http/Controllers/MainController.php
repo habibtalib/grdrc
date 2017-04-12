@@ -168,7 +168,8 @@ class MainController extends Controller
     public function detail(Items $item) {
         //dd($request->all());
         $recent = Items::get();
-        return view('detail.show', compact('recent','item'));
+        $request = Request();
+        return view('detail.show', compact('recent','item', 'request'));
     }
 
     public function contactUs(){

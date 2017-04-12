@@ -1,6 +1,6 @@
 <section>
     <h2>Search Filter</h2>
-    <form class="form inputs-underline" method="POST" action="listing">
+    <form class="form inputs-underline" method="POST" action="\listing">
         {{csrf_field()}}
         <div class="form-group">
             <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" value="{{$request->keyword}}">

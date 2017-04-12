@@ -72,6 +72,7 @@ Route::post('/modal/sign-in', 'ModalController@signIn');
 Route::post('/modal/register', 'ModalController@register');
 Route::post('/modal/reset_password', 'ModalController@resetPassword');
 Route::post('/modal/submit', 'ModalController@submit');
+Route::post('/modal/item/{item}', 'ModalController@item');
 
 Route::get('/contact-us', 'MainController@contactUs');
 Route::get('/about-us', 'MainController@aboutUs');
