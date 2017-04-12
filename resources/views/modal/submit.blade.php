@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="modal-body">
-            <form class="form inputs-underline" method="POST" action="\submit">
+            <form class="form inputs-underline dropzone" method="POST" action="\submit">
                 {{csrf_field()}}
                 <section>
                     <h3>About</h3>
@@ -96,8 +96,8 @@
                 <section>
                     <h3>Gallery</h3>
                     <div class="file-upload-previews"></div>
-                    <div class="file-upload">
-                        <input type="file"  class="file-upload-input with-preview" multiple title="Click to add files" maxlength="10" accept="gif|jpg|png">
+                    <div class="file-upload" id="myId">
+                        <input type="file"  name="file" class="file-upload-input with-preview" multiple title="Click to add files" maxlength="10" accept="gif|jpg|png" >
                         <span>Click or drag images here</span>
                     </div>
                     {{--<div class="form-group">
@@ -521,3 +521,7 @@
     <!--end modal-content-->
 </div>
 <!--end modal-dialog-->
+<script>
+    $("div#myId").dropzone({ url: "/file/post" });
+
+</script>

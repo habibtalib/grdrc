@@ -15,3 +15,4 @@
 
 <script type="text/javascript" src="{{url('/')}}/assets/js/custom.js"></script>
 <script type="text/javascript" src="{{url('/')}}/assets/js/maps.js"></script>
+<script type="text/javascript" src="{{url('/')}}/js/dropzone.js"></script>

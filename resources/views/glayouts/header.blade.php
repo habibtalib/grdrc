@@ -1,7 +1,7 @@
 <header id="page-header">
     <nav>
         <div class="left">
-            <a href="/" class="brand"><img src="{{url('/')}}/assets/img/logo.png" alt=""></a>
+            <a href="/" class="brand"><img src="{{url('/')}}/img/logo.png" alt=""></a>
         </div>
         <!--end left-->
         <div class="right">
