@@ -153,6 +153,7 @@ class MainController extends Controller
             //dd($request->all());
             $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')
                 ->where('category', 'like', '%'. $request['category'] . '%')
+                ->where('location', 'like', '%'. $request['location'] . '%')
                 ->paginate(10);
 
         } else {
@@ -161,13 +162,14 @@ class MainController extends Controller
 
         $recent = Items::get();
 
-        return view('listing',compact('data','recent'));
+        return view('listing',compact('data','recent', 'request'));
     }
 
     public function detail(Items $item) {
         //dd($request->all());
         $recent = Items::get();
-        return view('detail.show', compact('recent','item'));
+        $request = Request();
+        return view('detail.show', compact('recent','item', 'request'));
     }
 
     public function contactUs(){
@@ -178,18 +180,9 @@ class MainController extends Controller
         return view('about-us');
     }
 
-    public function submitListing() {
-        dd(request()->all());
-        $this->validate(request(), [
-            'title' => 'required'
-        ]);
-
-        Items::create([
-            'title' => request('title'),
-        ]);
-
+    public function submit(){
+        Items::create(request()->all());
         return redirect('/');
-
     }
 
 

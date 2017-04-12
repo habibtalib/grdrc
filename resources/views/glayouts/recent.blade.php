@@ -13,7 +13,7 @@
         <div class="row">
             @foreach( $recent as $item)
                 <div class="col-md-4 col-sm-4">
-                    <div class="item" data-id="1">
+                    <div class="item" data-id="{{$item['id']}}">
                         <a href="detail/{{$item['id']}}">
                             <div class="description">
                                 <figure>{{$item['additional_info']}}</figure>

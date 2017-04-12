@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-md-7 col-sm-8">
                     </div>
-                    <div class="col-md-2">
+                    {{--<div class="col-md-2">
                         <div class="ui-slider" id="price-slider" data-value-min="10" data-value-max="4000" data-value-type="price" data-currency="RM" data-currency-placement="before">
                             <div class="values clearfix">
                                 <input class="value-min" name="value-min[]" readonly>
@@ -56,7 +56,7 @@
                             <div class="element"></div>
                         </div>
                         <!--end price-slider-->
-                    </div>
+                    </div>--}}
                 </div>
             </form>
             <!--end form-hero-->
