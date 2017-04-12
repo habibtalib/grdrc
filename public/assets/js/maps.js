@@ -270,8 +270,8 @@ function heroMap(_latitude,_longitude, element, markerTarget, sidebarResultTarge
 
             function openSidebarDetail(id){
                 $.ajax({
-                    url: "assets/external/sidebar_detail.php",
-                    data: { id: id },
+                    url: "sidebar_detail",
+                    data: { id: id, _token: CSRF_TOKEN },
                     method: "POST",
                     success: function(results){
                         $(".sidebar-wrapper").html(results);
@@ -526,7 +526,7 @@ function simpleMap(_latitude,_longitude, element, markerDrag, place){
             position: mapCenter,
             map: map,
             draggable: markerDrag,
-            content: "<img src='assets/img/marker.png'>",
+            content: "<img src='/assets/img/marker.png'>",
             flat: true
         });
         google.maps.event.addListener(marker, "dragend", function () {

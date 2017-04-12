@@ -113,4 +113,15 @@
         </section>
     </div>
     <!--end container-->
+
+@endsection
+
+@section('script')
+    <script type="text/javascript" src="/assets/js/jQuery.MultiFile.min.js"></script>
+    <script>
+        var _latitude = '{{$item->latitude}}';
+        var _longitude = '{{$item->longitude}}';
+        var element = "map-submit";
+        simpleMap(_latitude,_longitude, element, true);
+    </script>
 @endsection

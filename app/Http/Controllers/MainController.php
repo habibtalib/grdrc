@@ -95,6 +95,21 @@ class MainController extends Controller
 
     }
 
+    public function sidebar_detail(Request $request){
+
+        $data = Items::where('id', $request['id'])->get();
+
+        // Select all data from "gallery"s
+        $gallery = Gallery::where('items_id' , $request['id'])->get();
+
+        // Select all data from "reviews"s
+        $reviews = Reviews::where('item_id' , $request['id'])->get();
+
+        $currentLocation = $data[0];
+        return view('sideBarDetail',compact('currentLocation','reviews', 'gallery'));
+
+    }
+
     public function infoBox(Request $request){
 
         $data = Items::where('id', $request['id'])->get();

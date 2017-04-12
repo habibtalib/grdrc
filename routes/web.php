@@ -64,6 +64,7 @@ Route::post('/customizer', 'MainController@customizer');
 Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');
 Route::post('/infobox', 'MainController@infoBox');
+Route::post('/sidebar_detail', 'MainController@sidebar_detail');
 Route::post('/listing', 'MainController@listing');
 Route::get('/detail/{item}', 'MainController@detail');
 Route::get('/edit/{item}', 'MainController@edit');
