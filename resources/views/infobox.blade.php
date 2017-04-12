@@ -1,5 +1,5 @@
 <div class="item infobox" data-id="{{ $currentLocation['id'] }}">
-    <a href="detail?{{ $currentLocation['id'] }}">
+    <a href="detail/{{ $currentLocation['id'] }}">
         <div class="description">
 
 
@@ -40,7 +40,7 @@
 
 <!--end image-->
 </a>
-@if( !empty( $currentLocation['rating'] ) )
+{{--@if( !empty( $currentLocation['rating'] ) )
 
     <div class="rating-passive">
         @for($i=0; $i < 5; $i++)
@@ -53,14 +53,14 @@
 
         <span class="reviews">{{ count($reviews) }}</span>
     </div>
-@endif
+@endif--}}
 
-<div class="controls-more">
+<!--<div class="controls-more">
     <ul>
         <li><a href="#">Add to favorites</a></li>
         <li><a href="#">Add to watchlist</a></li>
     </ul>
-</div>
+</div>-->
 <!--end controls-more-->
 
 </div>

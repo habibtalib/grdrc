@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
+            <li><a href="\">Home</a></li>
+            <li><a href="/listing">Listing</a></li>
             <li class="active">Detail</li>
         </ol>
 
@@ -14,13 +14,13 @@
                     <div class="pull-left">
                         <h1>{{$item['title']}}</h1>
                         <h3>{{$item['location']}}</h3>
-                        <div class="rating-passive" data-rating="4">
+                        <!--<div class="rating-passive" data-rating="4">
                             <span class="stars"></span>
                             <span class="reviews">6</span>
-                        </div>
+                        </div>-->
                     </div>
                     <!--end page-title-->
-                    <!--<a href="#write-a-review" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"><i class="fa fa-star"></i>Write a review</a>-->
+                    <a href="/edit/{{$item['id']}}" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"></i>Edit</a>
                 </section>
 
                 <div class="row">
@@ -45,26 +45,6 @@
                                 {{$item->description}}
                             </section>
                         </section>
-
-                        <!--<section class="box">
-                            <h2>Opening Hours</h2>
-                            <dl>
-                                <dt>Monday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Tuesday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Wednesday</dt>
-                                <dd>12:00am - 11:00pm</dd>
-                                <dt>Thursday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Friday</dt>
-                                <dd>03:00pm - 02:00am</dd>
-                                <dt>Saturday</dt>
-                                <dd>03:00pm - 02:00am</dd>
-                                <dt>Sunday</dt>
-                                <dd>Closed</dd>
-                            </dl>
-                        </section>-->
 
 
                         {{--@include('detail.reviews')--}}
