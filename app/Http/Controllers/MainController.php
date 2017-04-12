@@ -151,7 +151,10 @@ class MainController extends Controller
         //dd($request->all());
         if(isset($request['_token'])) {
             //dd($request->all());
-            $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')->orWhere('category', 'like', '%'. $request['category'] . '%')->paginate(10);
+            $data = Items::where('title', 'like', '%'. $request['keyword'] . '%')
+                ->where('category', 'like', '%'. $request['category'] . '%')
+                ->where('location', 'like', '%'. $request['location'] . '%')
+                ->paginate(10);
 
         } else {
             $data = Items::paginate(10);
@@ -159,7 +162,7 @@ class MainController extends Controller
 
         $recent = Items::get();
 
-        return view('listing',compact('data','recent'));
+        return view('listing',compact('data','recent', 'request'));
     }
 
     public function detail(Items $item) {

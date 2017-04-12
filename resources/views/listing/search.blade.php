@@ -1,36 +1,30 @@
 <section>
     <h2>Search Filter</h2>
-    <form class="form inputs-underline">
+    <form class="form inputs-underline" method="POST" action="listing">
+        {{csrf_field()}}
         <div class="form-group">
-            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword">
+            <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" value="{{$request->keyword}}">
         </div>
         <!--end form-group-->
         <div class="form-group">
             <select class="form-control selectpicker" name="location">
-                <option value="">Location</option>
-                <option value="1">New York</option>
-                <option value="2">Washington</option>
-                <option value="3">London</option>
-                <option value="4">Paris</option>
+                <option value="" {{($request->location == '') ? 'selected' : ''}}>All Locations</option>
+                <option value="Kuala Lumpur" {{($request->location == 'Kuala Lumpur') ? 'selected' : ''}}>Kuala Lumpur</option>
+                <option value="Selangor" {{($request->location == 'Selangor') ? 'selected' : ''}}>Selangor</option>
+                <option value="Melaka" {{($request->location == 'Melaka') ? 'selected' : ''}}>Melaka</option>
+                <option value="Johor" {{($request->location == 'Johor') ? 'selected' : ''}}>Johor</option>
             </select>
         </div>
         <!--end form-group-->
         <div class="form-group">
             <select class="form-control selectpicker" name="category">
-                <option value="">Category</option>
-                <option value="1">Restaurant</option>
-                <option value="2">Event</option>
-                <option value="3">Adrenaline</option>
-                <option value="4">Sport</option>
-                <option value="5">Wellness</option>
+                <option value="" {{($request->category == '') ? 'selected' : ''}}>All Categories</option>
+                <option value="Billboard" {{($request->category == 'Billboard') ? 'selected' : ''}}>Billboard</option>
+                <option value="Digital Billboard" {{($request->category == 'Digital Billboard') ? 'selected' : ''}}>Digital Billboard</option>
             </select>
         </div>
         <!--end form-group-->
-        <div class="form-group">
-            <input type="text" class="form-control date-picker" name="min-price" placeholder="Event Date">
-        </div>
-        <!--end form-group-->
-        <div class="form-group">
+       {{--<div class="form-group">
             <div class="ui-slider" id="price-slider" data-value-min="10" data-value-max="400" data-value-type="price" data-currency="$" data-currency-placement="before">
                 <div class="values clearfix">
                     <input class="value-min" name="value-min[]" readonly>
@@ -39,7 +33,7 @@
                 <div class="element"></div>
             </div>
             <!--end price-slider-->
-        </div>
+        </div>--}}
         <!--end form-group-->
         <div class="form-group">
             <button type="submit" class="btn btn-primary pull-right">Search Now<i class="fa fa-search"></i></button>

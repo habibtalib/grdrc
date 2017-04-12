@@ -30,7 +30,7 @@
                                 <div class="owl-carousel" data-owl-nav="0" data-owl-dots="1">
                                     @foreach($item->gallery as $picture)
                                         <div class="image">
-                                            <div class="bg-transfer"><img src="{{url('/').$picture->image}}" alt=""></div>
+                                            <div class="bg-transfer"><img src="{{url('/').'/'.$picture->image}}" alt=""></div>
                                         </div>
                                     @endforeach
                                 </div>
