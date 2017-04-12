@@ -394,7 +394,7 @@ function heroMap(_latitude,_longitude, element, markerTarget, sidebarResultTarge
                             }
                             else if( sidebarResultTarget == "modal" ){
                                 e.preventDefault();
-                                openModal( $(this).parent().attr("data-id"), "modal_item.php" );
+                                openModal( $(this).parent().attr("data-id"), "modal/item" );
                             }
 
                             $(lastClickedMarker).removeClass("active");

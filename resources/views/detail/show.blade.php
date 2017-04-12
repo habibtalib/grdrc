@@ -59,16 +59,8 @@
                                     <div class="map height-250px" id="map-detail"></div>
                                     <!--end map-->
                                     <div class="content">
-                                        <div class="vertical-aligned-elements">
-                                            <div class="element"><img src="{{url('/')}}/assets/img/logo-2.png" alt=""></div>
-                                            <div class="element text-align-right"><a href="#" class="btn btn-primary btn-rounded btn-xs">Claim</a></div>
-                                        </div>
-                                        <hr>
                                         <address>
-                                            <figure><i class="fa fa-map-marker"></i>3858 Marion Street<br>Morrisville, VT 05661 </figure>
-                                            <figure><i class="fa fa-envelope"></i><a href="#">email@example.com</a></figure>
-                                            <figure><i class="fa fa-phone"></i>316-436-8619</figure>
-                                            <figure><i class="fa fa-globe"></i><a href="#">www.markysrestaurant.com</a></figure>
+                                            <figure><i class="fa fa-map-marker"></i>{{$item->address}}</figure>
                                         </address>
                                     </div>
                                 </section>
@@ -112,3 +104,13 @@
     <!--end container-->
 @endsection
 
+@section('script')
+    <script>
+        rating(".visitor-rating");
+        var _latitude = '{{$item->latitude}}';
+        var _longitude = '{{$item->longitude}}';
+        var element = "map-detail";
+        simpleMap(_latitude,_longitude, element);
+    </script>
+
+@endsection
