@@ -9,11 +9,11 @@
         </ol>
         <section class="page-title">
             <h1 class="pull-left">Contact</h1>
-            <div class="pull-right featured-contact">
+            <!--<div class="pull-right featured-contact">
                 <i class="icon_comment_alt"></i>
                 <h4>24/7 Support</h4>
                 <h3>228-341-8068</h3>
-            </div>
+            </div>-->
         </section>
         <!--end section-title-->
     </div>
@@ -30,23 +30,21 @@
                     <div class="box">
                         <address>
                             <strong>Location</strong>
-                            <figure>4758 Nancy Street</figure>
+                            <figure>Lorong Medan Tuanku 1</figure>
                             <br>
                             <strong>Phone Number</strong>
-                            <figure>+1 919-571-2528</figure>
+                            <figure>+6019-2271805</figure>
                             <br>
                             <strong>Email</strong>
-                            <figure><a href="#">hello@example.com</a></figure>
-                            <br>
-                            <strong>Customer Care</strong>
-                            <figure><a href="#">support@example.com</a></figure>
+                            <figure><a href="#">admin@getiruh.com</a></figure>
                         </address>
                     </div>
                 </div>
                 <!--end col-md-3-->
                 <div class="col-md-9 col-sm-9">
                     <h3>Form</h3>
-                    <form class="form form-email inputs-underline" id="form-hero">
+                    <form class="form inputs-underline" id="form-hero" method="POST" action="/">
+                        {{csrf_field()}}
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
@@ -91,4 +89,13 @@
         </div>
         <!--end container-->
     </section>
+@endsection
+
+@section('script')
+    <script>
+        var _latitude = 3.158356;
+        var _longitude = 101.696604;
+        var element = "map-contact";
+        simpleMap(_latitude,_longitude, element);
+    </script>
 @endsection
