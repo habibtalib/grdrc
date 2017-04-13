@@ -11,7 +11,7 @@
                 </div>
                 <!--end description-->
                 <div class="image bg-transfer">
-                    <img src="{{url('/')}}/assets/img/items/1.jpg" alt="">
+                    <img src="{{url('/').'/'.$item->gallery->first()['image']}}" alt="">
                 </div>
                 <!--end image-->
             </a>
