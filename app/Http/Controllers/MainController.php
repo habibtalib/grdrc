@@ -164,14 +164,19 @@ class MainController extends Controller
     }
 
     public function submit(UploadRequest $request){
-        $item = Items::create($request->all());
+        $item = Items::create($request->except('files'));
 
-        foreach ($request->files as $photo) {
-            $filename = $photo->store('photos');
-            Gallery::create([
-                'items_id' => $item->id,
-                'image' => $filename
-            ]);
+        if(!empty($request->file('files'))){
+            foreach ($request->file('files') as $photo) {
+
+                //dd($photo);
+                $filename = $photo->store('img', 'public');
+                Gallery::create([
+                    'items_id' => $item->id,
+                    'image' => $filename
+                ]);
+
+            }
         }
 
         return redirect('/detail/'.$item->id);
@@ -186,11 +191,12 @@ class MainController extends Controller
         ]);
 
 
-        $item->title = $request->title;
+        $item->fill($request->except('files'));
 
         $item->save();
 
-        foreach ($request->file('files') as $photo) {
+        if(!empty($request->file('files'))){
+            foreach ($request->file('files') as $photo) {
 
                 //dd($photo);
                 $filename = $photo->store('img', 'public');
@@ -199,6 +205,7 @@ class MainController extends Controller
                     'image' => $filename
                 ]);
 
+            }
         }
 
         return redirect('/detail/'.$id);
