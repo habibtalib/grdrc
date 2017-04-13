@@ -78,6 +78,16 @@
                                         </select>
                                     </div>
                                     <!--end form-group-->
+                                    <div class="form-group">
+                                        <label for="phone">Price </label>
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{{$item->phone}}">
+                                    </div>
+                                    <!--end form-group-->
+                                    <div class="form-group">
+                                        <label for="email">Dimension </label>
+                                        <input type="text" class="form-control" name="email" id="email" value="{{$item->email}}">
+                                    </div>
+                                    <!--end form-group-->
                                 </div>
                                 <!--end col-md-6-->
                             </div>
