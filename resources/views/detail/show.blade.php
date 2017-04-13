@@ -69,18 +69,6 @@
                         </section>
                         {{--@include('detail.detail-sidebar')--}}
                         <section>
-                            <h2>Features</h2>
-                            <ul class="tags">
-                                <li>Wi-Fi</li>
-                                <li>Parking</li>
-                                <li>TV</li>
-                                <li>Alcohol</li>
-                                <li>Vegetarian</li>
-                                <li>Take-out</li>
-                                <li>Balcony</li>
-                            </ul>
-                        </section>
-                        <section>
                             <h2>Social Share</h2>
                             <div class="social-share"></div>
                         </section>

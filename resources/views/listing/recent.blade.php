@@ -4,7 +4,7 @@
         <div class="item" data-id="1">
             <a href="detail">
                 <div class="description">
-                    <figure>Average Price: $8 - $30{{$item['']}}</figure>
+                    <figure>{{$item['additional_info']}}</figure>
                     <div class="label label-default">{{$item['category']}}</div>
                     <h3>{{$item['title']}}</h3>
                     <h4>{{$item['location']}}</h4>

@@ -7,6 +7,9 @@ use App\Items;
 use App\Gallery;
 use App\Reviews;
 use Illuminate\Queue\RedisQueue;
+use App\Http\Requests\UploadRequest;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
@@ -160,14 +163,21 @@ class MainController extends Controller
         return view('about-us');
     }
 
-    public function submit(){
-        Items::create(request()->all());
-        return redirect('/');
+    public function submit(UploadRequest $request){
+        $item = Items::create($request->all());
+
+        foreach ($request->files as $photo) {
+            $filename = $photo->store('photos');
+            Gallery::create([
+                'items_id' => $item->id,
+                'image' => $filename
+            ]);
+        }
+
+        return redirect('/detail/'.$item->id);
     }
 
-    public function update($id){
-
-        $request = request();
+    public function update($id, UploadRequest $request){
         $item = Items::findOrFail($id);
 
         $this->validate($request, [
@@ -175,9 +185,21 @@ class MainController extends Controller
             'address' => 'required'
         ]);
 
-        $input = $request->all();
 
-        $item->fill($input)->save();
+        $item->title = $request->title;
+
+        $item->save();
+
+        foreach ($request->file('files') as $photo) {
+
+                //dd($photo);
+                $filename = $photo->store('img', 'public');
+                Gallery::create([
+                    'items_id' => $item->id,
+                    'image' => $filename
+                ]);
+
+        }
 
         return redirect('/detail/'.$id);
     }
@@ -185,6 +207,26 @@ class MainController extends Controller
 
     public function edit(Items $item){
         return view('edit', compact('item'));
+    }
+
+    public function create(Items $item){
+        return view('create');
+    }
+
+    public function getImage($id){
+        $path = storage_path('app/public/img/'.$id);
+
+        if (!Storage::exists($path)) {
+            return '';
+        }
+
+        $file = Storage::get($path);
+        $type = Storage::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
     }
 
 }

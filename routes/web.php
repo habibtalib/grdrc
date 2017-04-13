@@ -68,6 +68,7 @@ Route::post('/sidebar_detail', 'MainController@sidebar_detail');
 Route::post('/listing', 'MainController@listing');
 Route::get('/detail/{item}', 'MainController@detail');
 Route::get('/edit/{item}', 'MainController@edit');
+Route::get('/create', 'MainController@create');
 Route::get('/listing', 'MainController@listing');
 Route::post('/submit', 'MainController@submit');
 
@@ -81,3 +82,4 @@ Route::post('/modal/item/{item}', 'ModalController@item');
 
 Route::get('/contact-us', 'MainController@contactUs');
 Route::get('/about-us', 'MainController@aboutUs');
+Route::get('/img/{id}', 'MainController@getimage');
