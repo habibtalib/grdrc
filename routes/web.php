@@ -64,10 +64,15 @@ Route::post('/customizer', 'MainController@customizer');
 Route::get('/data', 'MainController@data');
 Route::post('/sidebar_result', 'MainController@sidebar_result');
 Route::post('/infobox', 'MainController@infoBox');
+Route::post('/sidebar_detail', 'MainController@sidebar_detail');
 Route::post('/listing', 'MainController@listing');
 Route::get('/detail/{item}', 'MainController@detail');
+Route::get('/edit/{item}', 'MainController@edit');
+Route::get('/create', 'MainController@create');
 Route::get('/listing', 'MainController@listing');
 Route::post('/submit', 'MainController@submit');
+
+Route::post('/update/{id}', 'MainController@update');
 
 Route::post('/modal/sign-in', 'ModalController@signIn');
 Route::post('/modal/register', 'ModalController@register');
@@ -77,3 +82,4 @@ Route::post('/modal/item/{item}', 'ModalController@item');
 
 Route::get('/contact-us', 'MainController@contactUs');
 Route::get('/about-us', 'MainController@aboutUs');
+Route::get('/img/{id}', 'MainController@getimage');

@@ -28,14 +28,12 @@
                             <!--end image-->
                         </a>
                         <div class="additional-info">
-                            <div class="rating-passive" data-rating="{{$item['rating']}}">
+                            <!--<div class="rating-passive" data-rating="{{$item['rating']}}">
                                 <span class="stars"></span>
                                 <span class="reviews">6</span>
-                            </div>
+                            </div>-->
                             <div class="controls-more">
                                 <ul>
-                                    <li><a href="#">Add to favorites</a></li>
-                                    <li><a href="#">Add to watchlist</a></li>
                                     <li><a href="#" class="quick-detail">Quick detail</a></li>
                                 </ul>
                             </div>

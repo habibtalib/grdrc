@@ -12,6 +12,8 @@
 <script type="text/javascript" src="{{url('/')}}/assets/js/icheck.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="{{url('/')}}/assets/js/jquery.nouislider.all.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="{{url('/')}}/assets/js/jQuery.MultiFile.min.js"></script>
 
 <script type="text/javascript" src="{{url('/')}}/assets/js/custom.js"></script>
 <script type="text/javascript" src="{{url('/')}}/assets/js/maps.js"></script>

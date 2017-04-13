@@ -7,6 +7,9 @@ use App\Items;
 use App\Gallery;
 use App\Reviews;
 use Illuminate\Queue\RedisQueue;
+use App\Http\Requests\UploadRequest;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
 {
@@ -46,7 +49,6 @@ class MainController extends Controller
 
     public function customizer(Request $request)
     {
-        $default_color = "";
         $path_to_css_file = 'assets/css/style.css';
         $file_contents = file_get_contents($path_to_css_file);
 
@@ -80,67 +82,48 @@ class MainController extends Controller
 
         if( !empty( $request['markers'] ) ){
 
-            for( $i=0; $i < count($request['markers']); $i++){
-                //$queryData = mysqli_query( $connection, "SELECT * FROM items WHERE id = " . $request['markers'][$i] );
-                //array_push( $data, mysqli_fetch_assoc( $queryData ) );
+            for( $i=0; $i < count($request['markers']); $i++){;
                 $data = Items::where('id', $request['markers'][$i])->get();
 
                 // gallery
-                //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $request['markers'][$i] );
-                //array_push( $gallery, mysqli_fetch_assoc( $queryGallery ) );
                 $gallery = Gallery::where('items_id' , $request['markers'][$i])->get();
 
                 // reviews
-                //$queryReviews = mysqli_query( $connection, "SELECT rating FROM reviews WHERE item_id = " . $request['markers'][$i] );
-                //$reviews = mysqli_fetch_all( $queryReviews, MYSQLI_ASSOC );
-                //array_push( $reviewsNumber, count($reviews ) );
                 $reviewsNumber = Reviews::where('item_id' , $request['markers'][$i])->get();
             }
 
         }
 
-        // End of example ------------------------------------------------------------------------------------------------------
-
-
         return view('sideBarResult',compact('data','request','gallery','reviewsNumber'));
 
     }
 
-    public function infoBox(Request $request){
-        $currentLocation = "";
-        //$reviewsNumber = [];
+    public function sidebar_detail(Request $request){
 
-        // Select all data from "items"
-        //$queryData = mysqli_query( $connection, "SELECT * FROM items WHERE id = " . $_POST['id'] );
-        //$data = mysqli_fetch_all( $queryData, MYSQLI_ASSOC );
         $data = Items::where('id', $request['id'])->get();
 
-        // Select all data from "gallery"
-        //$queryGallery = mysqli_query( $connection, "SELECT image FROM gallery WHERE item_id = " . $_POST['id'] );
-        //$gallery = mysqli_fetch_all( $queryGallery, MYSQLI_ASSOC );
+        // Select all data from "gallery"s
         $gallery = Gallery::where('items_id' , $request['id'])->get();
 
-        // Select all data from "reviews"
-        //$queryReviews = mysqli_query( $connection, "SELECT * FROM reviews WHERE item_id = " . $_POST['id'] );
-        //$reviews = mysqli_fetch_all( $queryReviews, MYSQLI_ASSOC );
-        //array_push( $reviewsNumber, count($reviews ) );
+        // Select all data from "reviews"s
         $reviews = Reviews::where('item_id' , $request['id'])->get();
-        //$reviewsNumber = Reviews::where('item_id' , $request['id'])->count();
 
-                $currentLocation = $data[0];
+        $currentLocation = $data[0];
+        return view('sideBarDetail',compact('currentLocation','reviews', 'gallery'));
 
-                /*
+    }
 
-                for( $i=0; $i < count($data); $i++){
-                    if( $data[$i]['id'] == $_POST['id'] ){
-                        $currentLocation = $data[$i]; // Loaded data must be stored in the "$currentLocation" variable
-                    }
-                }
-                */
+    public function infoBox(Request $request){
 
-        // End of example //////////////////////////////////////////////////////////////////////////////////////////////////////
+        $data = Items::where('id', $request['id'])->get();
 
+        // Select all data from "gallery"s
+        $gallery = Gallery::where('items_id' , $request['id'])->get();
 
+        // Select all data from "reviews"s
+        $reviews = Reviews::where('item_id' , $request['id'])->get();
+
+        $currentLocation = $data[0];
 
         return view('infoBox',compact('currentLocation','reviews', 'gallery'));
 
@@ -180,10 +163,77 @@ class MainController extends Controller
         return view('about-us');
     }
 
-    public function submit(){
-        Items::create(request()->all());
-        return redirect('/');
+    public function submit(UploadRequest $request){
+        $item = Items::create($request->except('files'));
+
+        if(!empty($request->file('files'))){
+            foreach ($request->file('files') as $photo) {
+
+                //dd($photo);
+                $filename = $photo->store('img', 'public');
+                Gallery::create([
+                    'items_id' => $item->id,
+                    'image' => $filename
+                ]);
+
+            }
+        }
+
+        return redirect('/detail/'.$item->id);
     }
 
+    public function update($id, UploadRequest $request){
+        $item = Items::findOrFail($id);
+
+        $this->validate($request, [
+            'title' => 'required',
+            'address' => 'required'
+        ]);
+
+
+        $item->fill($request->except('files'));
+
+        $item->save();
+
+        if(!empty($request->file('files'))){
+            foreach ($request->file('files') as $photo) {
+
+                //dd($photo);
+                $filename = $photo->store('img', 'public');
+                Gallery::create([
+                    'items_id' => $item->id,
+                    'image' => $filename
+                ]);
+
+            }
+        }
+
+        return redirect('/detail/'.$id);
+    }
+
+
+    public function edit(Items $item){
+        return view('edit', compact('item'));
+    }
+
+    public function create(Items $item){
+        return view('create');
+    }
+
+    public function getImage($id){
+        $path = storage_path('app/public/img/'.$id);
+
+        if (!Storage::exists($path)) {
+            return '';
+        }
+
+        $file = Storage::get($path);
+        $type = Storage::mimeType($path);
+
+        $response = Response::make($file, 200);
+        $response->header("Content-Type", $type);
+
+        return $response;
+    }
 
 }

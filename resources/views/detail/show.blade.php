@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
+            <li><a href="\">Home</a></li>
+            <li><a href="/listing">Listing</a></li>
             <li class="active">Detail</li>
         </ol>
 
@@ -14,13 +14,13 @@
                     <div class="pull-left">
                         <h1>{{$item['title']}}</h1>
                         <h3>{{$item['location']}}</h3>
-                        <div class="rating-passive" data-rating="4">
+                        <!--<div class="rating-passive" data-rating="4">
                             <span class="stars"></span>
                             <span class="reviews">6</span>
-                        </div>
+                        </div>-->
                     </div>
                     <!--end page-title-->
-                    <!--<a href="#write-a-review" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"><i class="fa fa-star"></i>Write a review</a>-->
+                    <a href="/edit/{{$item['id']}}" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"></i>Edit</a>
                 </section>
 
                 <div class="row">
@@ -46,26 +46,6 @@
                             </section>
                         </section>
 
-                        <!--<section class="box">
-                            <h2>Opening Hours</h2>
-                            <dl>
-                                <dt>Monday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Tuesday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Wednesday</dt>
-                                <dd>12:00am - 11:00pm</dd>
-                                <dt>Thursday</dt>
-                                <dd>08:00am - 11:00pm</dd>
-                                <dt>Friday</dt>
-                                <dd>03:00pm - 02:00am</dd>
-                                <dt>Saturday</dt>
-                                <dd>03:00pm - 02:00am</dd>
-                                <dt>Sunday</dt>
-                                <dd>Closed</dd>
-                            </dl>
-                        </section>-->
-
 
                         {{--@include('detail.reviews')--}}
 
@@ -79,16 +59,8 @@
                                     <div class="map height-250px" id="map-detail"></div>
                                     <!--end map-->
                                     <div class="content">
-                                        <div class="vertical-aligned-elements">
-                                            <div class="element"><img src="{{url('/')}}/assets/img/logo-2.png" alt=""></div>
-                                            <div class="element text-align-right"><a href="#" class="btn btn-primary btn-rounded btn-xs">Claim</a></div>
-                                        </div>
-                                        <hr>
                                         <address>
-                                            <figure><i class="fa fa-map-marker"></i>3858 Marion Street<br>Morrisville, VT 05661 </figure>
-                                            <figure><i class="fa fa-envelope"></i><a href="#">email@example.com</a></figure>
-                                            <figure><i class="fa fa-phone"></i>316-436-8619</figure>
-                                            <figure><i class="fa fa-globe"></i><a href="#">www.markysrestaurant.com</a></figure>
+                                            <figure><i class="fa fa-map-marker"></i>{{$item->address}}</figure>
                                         </address>
                                     </div>
                                 </section>
@@ -96,18 +68,6 @@
                             <!--end detail-sidebar-->
                         </section>
                         {{--@include('detail.detail-sidebar')--}}
-                        <section>
-                            <h2>Features</h2>
-                            <ul class="tags">
-                                <li>Wi-Fi</li>
-                                <li>Parking</li>
-                                <li>TV</li>
-                                <li>Alcohol</li>
-                                <li>Vegetarian</li>
-                                <li>Take-out</li>
-                                <li>Balcony</li>
-                            </ul>
-                        </section>
                         <section>
                             <h2>Social Share</h2>
                             <div class="social-share"></div>
@@ -132,3 +92,13 @@
     <!--end container-->
 @endsection
 
+@section('script')
+    <script>
+        rating(".visitor-rating");
+        var _latitude = '{{$item->latitude}}';
+        var _longitude = '{{$item->longitude}}';
+        var element = "map-detail";
+        simpleMap(_latitude,_longitude, element);
+    </script>
+
+@endsection

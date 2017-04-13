@@ -3,8 +3,7 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
+            <li><a href="/">Home</a></li>
             <li class="active">Listing</li>
         </ol>
         <div class="row">
@@ -16,21 +15,21 @@
 
                 <section>
                     <div class="search-results-controls clearfix">
-                        <div class="pull-left">
-                            <a href="" class="circle-icon active"><i class="fa fa-th"></i></a>
-                            <a href="" class="circle-icon"><i class="fa fa-bars"></i></a>
+                    {{--<div class="pull-left">
+                        <a href="" class="circle-icon active"><i class="fa fa-th"></i></a>
+                        <a href="" class="circle-icon"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <!--end left-->
+                    <div class="pull-right">
+                        <div class="input-group inputs-underline min-width-150px">
+                            <select class="form-control selectpicker" name="sort">
+                                <option value="">Sort by</option>
+                                <option value="1">Price</option>
+                                <option value="2">Distance</option>
+                                <option value="3">Title</option>
+                            </select>
                         </div>
-                        <!--end left-->
-                        <div class="pull-right">
-                            <div class="input-group inputs-underline min-width-150px">
-                                <select class="form-control selectpicker" name="sort">
-                                    <option value="">Sort by</option>
-                                    <option value="1">Price</option>
-                                    <option value="2">Distance</option>
-                                    <option value="3">Title</option>
-                                </select>
-                            </div>
-                        </div>
+                    </div>--}}
                         <!--end right-->
                     </div>
                     <!--end search-results-controls-->

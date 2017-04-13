@@ -13,10 +13,10 @@
 
 
                 @if( !empty($item['rating']) )
-                <div class="rating-passive" data-rating="'. $item['rating'] .'">
+                <!--<div class="rating-passive" data-rating="{{$item['rating']}}">
                     <span class="stars"></span>
                     {{--<span class="reviews">{{count($reviews)}}</span>--}}
-                </div>
+                </div>-->
                 @endif
 
 
