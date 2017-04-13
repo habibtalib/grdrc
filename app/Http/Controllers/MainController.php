@@ -8,7 +8,7 @@ use App\Gallery;
 use App\Reviews;
 use Illuminate\Queue\RedisQueue;
 use App\Http\Requests\UploadRequest;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
 class MainController extends Controller
@@ -221,14 +221,14 @@ class MainController extends Controller
     }
 
     public function getImage($id){
-        $path = storage_path('app/public/img/'.$id);
+        $path = '/img/'.$id;
 
-        if (!Storage::exists($path)) {
-            return '';
+        if (!Storage::disk('public')->exists($path)) {
+            //return 'not found';
         }
 
-        $file = Storage::get($path);
-        $type = Storage::mimeType($path);
+        $file = Storage::disk('public')->get($path);
+        $type = Storage::disk('public')->mimeType($path);
 
         $response = Response::make($file, 200);
         $response->header("Content-Type", $type);
