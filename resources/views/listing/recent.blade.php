@@ -1,8 +1,8 @@
 <section>
     <h2>Recent Items</h2>
     @foreach( $recent as $item)
-        <div class="item" data-id="1">
-            <a href="detail">
+        <div class="item" data-id="{{$item['id']}}">
+            <a href="/detail/{{$item['id']}}">
                 <div class="description">
                     <figure>{{$item['additional_info']}}</figure>
                     <div class="label label-default">{{$item['category']}}</div>
