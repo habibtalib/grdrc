@@ -125,7 +125,7 @@ class MainController extends Controller
 
         $currentLocation = $data[0];
 
-        return view('infoBox',compact('currentLocation','reviews', 'gallery'));
+        return view('infobox',compact('currentLocation','reviews', 'gallery'));
 
 
     }
