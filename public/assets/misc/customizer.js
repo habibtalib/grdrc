@@ -14,7 +14,7 @@ function loadColor(action, newColor){
                 });
             }
             else if ( action == "load_default_color" ){
-                createCustomizer(results);
+                //createCustomizer(results);
             }
             defaultColor = results;
         },

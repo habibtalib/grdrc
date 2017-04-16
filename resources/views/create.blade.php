@@ -24,7 +24,7 @@
                                 <div class="col-md-9 col-sm-9">
                                     <div class="form-group">
                                         <label for="title">Listing Title</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="Title" >
+                                        <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
                                     </div>
                                     <!--end form-group-->
                                 </div>
@@ -32,7 +32,7 @@
                                 <div class="col-md-3 col-sm-3">
                                     <div class="form-group">
                                         <label for="category">Category</label>
-                                        <select class="form-control selectpicker" name="category" id="category">
+                                        <select class="form-control selectpicker" name="category" id="category" required>
                                             <option value="Billboard" >Billboard</option>
                                             <option value="Digital Billboard" >Digital Billboard</option>
                                         </select>
