@@ -78,7 +78,7 @@ function heroMap(_latitude,_longitude, element, markerTarget, sidebarResultTarge
                 var marker;
                 var markerContent = document.createElement('div');
                 var thumbnailImage;
-
+                console.log(markers[i]);
                 if( markers[i]["marker_image"] != undefined ){
                     thumbnailImage = markers[i]["marker_image"];
                 }

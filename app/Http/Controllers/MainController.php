@@ -166,7 +166,9 @@ class MainController extends Controller
     public function submit(UploadRequest $request){
         $item = Items::create($request->except('files'));
 
+
         if(!empty($request->file('files'))){
+            $first = true;
             foreach ($request->file('files') as $photo) {
 
                 //dd($photo);
@@ -175,6 +177,11 @@ class MainController extends Controller
                     'items_id' => $item->id,
                     'image' => $filename
                 ]);
+                if($first) {
+                    $item->marker_image = $filename;
+                    $item->save();
+                    $first =  false;
+                }
 
             }
         }
