@@ -59,7 +59,7 @@ Route::post('/login', 'SessionController@store');
 Route::get('/logout', 'SessionController@destroy');
 
 
-Route::get('/', 'MainController@index');
+Route::get('/', 'MainController@index')->name('home');
 Route::post('/', 'MainController@index');
 Route::post('/customizer', 'MainController@customizer');
 Route::get('/data', 'MainController@data');

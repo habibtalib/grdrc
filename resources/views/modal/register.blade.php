@@ -7,26 +7,13 @@
             </div>
         </div>
         <div class="modal-body">
-            <form class="form inputs-underline">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name">
-                        </div>
-                        <!--end form-group-->
-                    </div>
-                    <!--end col-md-6-->
-                    <div class="col-md-6 col-sm-6">
-                        <div class="form-group">
-                            <label for="last_name">Last Name</label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last name">
-                        </div>
-                        <!--end form-group-->
-                    </div>
-                    <!--end col-md-6-->
+            <form class="form inputs-underline" method="POST" action="/register">
+                {{csrf_field()}}
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="name">
                 </div>
-                <!--enr row-->
+                <!--end form-group-->
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email">
@@ -39,13 +26,14 @@
                 <!--end form-group-->
                 <div class="form-group">
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password">
                 </div>
                 <!--end form-group-->
                 <div class="form-group center">
-                    <button type="submit" class="btn btn-primary width-100">Register Now</button>
+                    <button type="submit" class="btn btn-primary width-100">Register</button>
                 </div>
                 <!--end form-group-->
+                @include('layouts.errors')
             </form>
 
             <hr>

@@ -17,9 +17,11 @@
             </a>
             <div class="controls-more">
                 <ul>
-                    <li><a href="#">Add to favorites</a></li>
-                    <li><a href="#">Add to watchlist</a></li>
-                    <li><a href="detail" class="quick-detail">Quick detail</a></li>
+                    @if (Auth::check())
+                        <li><a href="/delete/{{$item['id']}}">Delete</a></li>
+                    @endif
+                    <li><a href="#" class="quick-detail">Quick detail</a></li>
+                </ul>
                 </ul>
             </div>
         </div>

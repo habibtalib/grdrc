@@ -20,7 +20,9 @@
                         </div>-->
                     </div>
                     <!--end page-title-->
+                    @if (Auth::check())
                     <a href="/edit/{{$item['id']}}" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"></i>Edit</a>
+                    @endif
                 </section>
 
                 <div class="row">

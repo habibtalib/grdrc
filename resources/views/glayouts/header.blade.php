@@ -15,12 +15,19 @@
             </div>
             <!--end primary-nav-->
             <div class="secondary-nav">
-                <a href="#" data-modal-external-file="{{url('/')}}/modal/sign-in" data-target="modal-sign-in">Sign In</a>
-                <a href="#" class="promoted" data-modal-external-file="{{url('/')}}/modal/register" data-target="modal-register">Register</a>
+                @if (Auth::check())
+                    <a class="nav-link" href="/logout">Logout</a>
+                @else
+                    <a href="#" data-modal-external-file="{{url('/')}}/modal/sign-in" data-target="modal-sign-in">Sign In</a>
+                    <a href="#" class="promoted" data-modal-external-file="{{url('/')}}/modal/register" data-target="modal-register">Register</a>
+                @endif
             </div>
             <!--end secondary-nav-->
             <!--<a href="#" class="btn btn-primary btn-small btn-rounded icon shadow add-listing" data-modal-external-file="{{url('/')}}/modal/submit" data-target="modal-submit"><i class="fa fa-plus"></i><span>Add listing</span></a>-->
-            <a href="/create" class="btn btn-primary btn-small btn-rounded icon shadow add-listing"><i class="fa fa-plus"></i><span>Add listing</span></a>
+
+            @if (Auth::check())
+                <a href="/create" class="btn btn-primary btn-small btn-rounded icon shadow add-listing"><i class="fa fa-plus"></i><span>Add listing</span></a>
+            @endif
             <div class="nav-btn">
                 <i></i>
                 <i></i>

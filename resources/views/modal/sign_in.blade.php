@@ -7,7 +7,8 @@
             </div>
         </div>
         <div class="modal-body">
-            <form class="form inputs-underline">
+            <form class="form inputs-underline" action="/login" method="POST">
+                {{csrf_field()}}
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Your email">
@@ -25,7 +26,7 @@
 
             <hr>
 
-            <a href="#" data-modal-external-file="modal/reset_password" data-target="modal-reset-password">I have forgot my password</a>
+            <!--<a href="#" data-modal-external-file="modal/reset_password" data-target="modal-reset-password">I have forgot my password</a>-->
             <!--end form-->
         </div>
         <!--end modal-body-->

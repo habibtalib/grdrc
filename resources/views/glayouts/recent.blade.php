@@ -34,7 +34,9 @@
                             </div>-->
                             <div class="controls-more">
                                 <ul>
+                                    @if (Auth::check())
                                     <li><a href="/delete/{{$item['id']}}">Delete</a></li>
+                                    @endif
                                     <li><a href="#" class="quick-detail">Quick detail</a></li>
                                 </ul>
                             </div>
