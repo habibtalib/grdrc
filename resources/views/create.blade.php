@@ -88,7 +88,6 @@
                                     </div>
                                     <!--end form-group-->
                                 </div>
-                                </div>
                                 <!--end col-md-6-->
                             </div>
                         </section>
@@ -103,7 +102,7 @@
                         <hr>
                         <section class="center">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-rounded">Update Listing</button>
+                                <button type="submit" class="btn btn-primary btn-rounded">Submit Listing</button>
                             </div>
                             <!--end form-group-->
                         </section>

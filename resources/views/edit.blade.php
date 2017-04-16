@@ -61,8 +61,8 @@
                                     <div class="map height-200px shadow" id="map-submit"></div>
                                     <!--end map-->
                                     <div class="form-group hidden">
-                                        <input type="text" class="form-control" id="latitude" name="latitude" hidden="">
-                                        <input type="text" class="form-control" id="longitude" name="longitude" hidden="">
+                                        <input type="text" class="form-control" id="latitude" name="latitude" hidden="" value="{{$item->latitude}}">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" hidden="{{$item->longitude}}">
                                     </div>
                                     <p class="note">Enter the exact address or drag the map marker to position</p>
                                 </div>
@@ -80,12 +80,12 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label for="phone">Price </label>
-                                        <input type="text" class="form-control" name="phone" id="phone" value="{{$item->phone}}">
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{{$item->phone}}" required>
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label for="email">Dimension </label>
-                                        <input type="text" class="form-control" name="email" id="email" value="{{$item->email}}">
+                                        <input type="text" class="form-control" name="email" id="email" value="{{$item->email}}" required>
                                     </div>
                                     <!--end form-group-->
                                 </div>
