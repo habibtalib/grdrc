@@ -80,10 +80,11 @@
                     </div>
                     <!--end row-->
                 </section>
-
+                @if(count($data) != 0)
                 <section>
                     @include('listing.nav')
                 </section>
+                @endif
             </div>
             <!--end col-md-9-->
 
