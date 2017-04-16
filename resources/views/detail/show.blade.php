@@ -21,6 +21,7 @@
                     </div>
                     <!--end page-title-->
                     @if (Auth::check())
+                    <a href="/delete/{{$item['id']}}?back=1" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"></i>Delete</a>
                     <a href="/edit/{{$item['id']}}" class="btn btn-primary btn-framed btn-rounded btn-light-frame icon scroll pull-right"></i>Edit</a>
                     @endif
                 </section>
@@ -63,6 +64,10 @@
                                     <div class="content">
                                         <address>
                                             <figure><i class="fa fa-map-marker"></i>{{$item->address}}</figure>
+                                            <hr>
+                                            <figure>Price : RM{{$item->phone}}</figure>
+                                            <hr>
+                                            <figure>Dimension : {{$item->email}}</figure>
                                         </address>
                                     </div>
                                 </section>

@@ -49,20 +49,20 @@
                 <!--end map-->
 
                 <section>
-                    <h3>Contact</h3>
+                    <h3>Detail</h3>
 
                     @if( !empty($item['location']) )
-                    <h5><i class="fa fa-map-marker"></i>{{$item['location']}}</h5>
+                    <h5><i class="fa fa-map-marker"></i>{{$item['address']}}</h5>
                     @endif
 
 
                     @if( !empty($item['phone']) )
-                    <h5><i class="fa fa-phone"></i>{{$item['phone']}}</h5>
+                    <h5>Price : RM</i>{{$item['phone']}}</h5>
                     @endif
 
 
                     @if( !empty($item['email']) )
-                    <h5><i class="fa fa-envelope"></i>{{$item['email']}}</h5>
+                    <h5>Dimension : </i>{{$item['email']}}</h5>
                     @endif
 
 

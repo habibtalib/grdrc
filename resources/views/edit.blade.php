@@ -62,7 +62,7 @@
                                     <!--end map-->
                                     <div class="form-group hidden">
                                         <input type="text" class="form-control" id="latitude" name="latitude" hidden="" value="{{$item->latitude}}">
-                                        <input type="text" class="form-control" id="longitude" name="longitude" hidden="{{$item->longitude}}">
+                                        <input type="text" class="form-control" id="longitude" name="longitude" hidden="" value="{{$item->longitude}}">
                                     </div>
                                     <p class="note">Enter the exact address or drag the map marker to position</p>
                                 </div>

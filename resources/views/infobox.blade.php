@@ -23,6 +23,16 @@
                 <h4>{{ $currentLocation['location'] }}</h4>
             @endif
 
+            @if( !empty($currentLocation['phone']) )
+
+                <h4>Price : {{ $currentLocation['phone'] }}</h4>
+            @endif
+
+                @if( !empty($currentLocation['email']) )
+
+                    <h4>Dimension : {{ $currentLocation['email'] }}</h4>
+                @endif
+
 
         </div>
         <!--end description-->

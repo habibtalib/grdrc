@@ -236,10 +236,13 @@ class MainController extends Controller
         return $response;
     }
 
-    public function deleteItem($id){
+    public function deleteItem($id, Request $request){
+
         $item = Items::find($id);
         $item->delete();
-
+        if(isset($request->back) && $request->back) {
+            return redirect()->home();
+        }
         return back();
     }
 
