@@ -71,6 +71,12 @@
                         <!--<end col-md-3-->
                     @endforeach
 
+                        @if(count($data) == 0)
+                                <div class="col-md-4 col-sm-4">
+                                    Sorry No Result Found
+                                </div>
+
+                        @endif
                     </div>
                     <!--end row-->
                 </section>
