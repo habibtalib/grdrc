@@ -236,4 +236,11 @@ class MainController extends Controller
         return $response;
     }
 
+    public function deleteItem($id){
+        $item = Items::find($id);
+        $item->delete();
+
+        return back();
+    }
+
 }

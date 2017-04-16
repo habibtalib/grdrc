@@ -34,6 +34,7 @@
                             </div>-->
                             <div class="controls-more">
                                 <ul>
+                                    <li><a href="/delete/{{$item['id']}}">Delete</a></li>
                                     <li><a href="#" class="quick-detail">Quick detail</a></li>
                                 </ul>
                             </div>
