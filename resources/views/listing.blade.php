@@ -46,6 +46,8 @@
                                         <div class="label label-default">{{$item['category']}}</div>
                                         <h3>{{$item['title']}}</h3>
                                         <h4>{{$item['location']}}</h4>
+                                        <h4>RM{{$item['phone']}}</h4>
+                                        <h4>{{$item['email']}}</h4>
                                     </div>
                                     <!--end description-->
                                     <div class="image bg-transfer">

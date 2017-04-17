@@ -25,12 +25,12 @@
 
             @if( !empty($currentLocation['phone']) )
 
-                <h4>Price : {{ $currentLocation['phone'] }}</h4>
+                <h4>RM{{ $currentLocation['phone'] }}</h4>
             @endif
 
                 @if( !empty($currentLocation['email']) )
 
-                    <h4>Dimension : {{ $currentLocation['email'] }}</h4>
+                    <h4>{{ $currentLocation['email'] }}</h4>
                 @endif
 
 
