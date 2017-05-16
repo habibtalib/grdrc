@@ -28,7 +28,7 @@ class UploadRequest extends FormRequest
         ];
         $photos = count($this->input('files'));
         foreach(range(0, $photos) as $index) {
-            $rules['files.' . $index] = 'image|mimes:jpeg,bmp,png|max:2000';
+            $rules['files.' . $index] = 'image|mimes:jpeg,bmp,png|max:200000';
         }
 
         return $rules;
